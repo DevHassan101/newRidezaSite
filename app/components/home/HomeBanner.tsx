@@ -99,7 +99,7 @@ export default function HeroBanner() {
     return (
         <>
             <section className="hero-banner">
-                <div className="hero-image relative h-[220vh] md:h-[140vh] lg:h-auto">
+                <div className="hero-image relative h-[200vh] md:h-[140vh] lg:h-auto">
                     <img src="/images/herobanner2.avif" className="h-full lg:h-auto" alt="hero-banner" />
                     <div className="hero-image-overlay w-full px-5 md:px-15 lg:px-30 absolute top-0 left-0 h-full flex items-center justify-center"
                         style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 40%, rgba(6,182,212,0.5) 70%, rgba(34,211,238,0.4) 100%)' }}>

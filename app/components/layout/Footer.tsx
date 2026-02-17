@@ -28,15 +28,15 @@ export default function Footer() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-black/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 px-28 pt-10 pb-8">
+      <div className="relative z-10 px-8 lg:px-28 pt-10 pb-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
-          <div className="flex items-center gap-3">
+          <div className="flex justify-center lg:justify-start items-center gap-3">
             <img src="./images/ridezalogo.png" className="w-35" alt="Rideza Logo" />
           </div>
           <p className="text-white text-[15px] leading-relaxed text-center">
             Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.
           </p>
-          <div className="flex justify-end">
+          <div className="flex justify-center lg:justify-end">
             <div className="relative group bg-linear-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 border-2 border-white hover:to-cyan-700 px-6 py-4 rounded-2xl flex items-center gap-4 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 cursor-pointer overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
               <div className="text-white">
@@ -51,11 +51,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-28">
+      <div className="relative z-10 mx-8 lg:mx-28">
         <div className="h-px bg-white/80" />
       </div>
 
-      <div className="relative z-10 px-28 py-12">
+      <div className="relative z-10 px-8 lg:px-28 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="footer-column-1">
             <div className="mb-5">
@@ -172,12 +172,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-25">
+      <div className="relative z-10 mx-8 lg:mx-25">
         <div className="h-px bg-white/80" />
       </div>
 
       <div className="relative z-10">
-        <div className="px-25 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="px-5 lg:px-25 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white text-sm">
             © Copyright
             <span className="text-white font-semibold pl-1">Rideza</span> Developed By

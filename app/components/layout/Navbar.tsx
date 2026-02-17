@@ -11,7 +11,7 @@ const menu = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Fair Services", path: "/services" },
-  { name: "Saftey", path: "/saftey" },
+  { name: "Safety", path: "/safety" },
   { name: "Blog", path: "/blog" },
   { name: "Contact Us", path: "/contact-us" },
 ];
@@ -63,15 +63,15 @@ export default function Navbar() {
               </span>
             </Link>
             <button onClick={() => setIsOpen(!isOpen)} className={`lg:hidden text-3xl transition-all duration-300 
-              ${scrolled ? "text-cyan-400" : "text-white" }`}>
+              ${scrolled ? "text-cyan-400" : isHome ? "text-white" : "text-cyan-400"}`}>
               {isOpen ? <IoMdClose /> : <FiMenu />}
             </button>
           </div>
         </nav>
         {/* mobile-menu */}
         {isOpen && (
-          <div className={`lg:hidden p-5 border-t transition-all duration-300 
-            ${scrolled || isHome ? "border-white/20 bg-header" : "bg-cyan-400"}`}>
+          <div className={`lg:hidden p-5 border-t border-cyan-400 transition-all duration-300 
+            ${scrolled || isHome ? "" : "bg-white/90"}`}>
             <ul className="flex flex-col items-center gap-3">
               {menu.map((item) => (
                 <li key={item.path}>
