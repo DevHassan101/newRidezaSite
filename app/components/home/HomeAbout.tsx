@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function HomeAbout() {
     return (
-        <section className="bg-white py-16 md:py-24 px-25">
+        <section className=" py-10 md:py-24 px-5 lg:px-26">
             <div className="w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div className="relative order-2 lg:order-1">
                         {/* Enhanced decorative elements */}
-                        <div className="absolute -top-10 -left-10 w-56 h-56 bg-linear-to-br from-cyan-400 to-cyan-500 opacity-15 rounded-3xl transform"></div>
-                        <div className="absolute top-20 -right-8 w-20 h-20 bg-cyan-400 opacity-20 rounded-full"></div>
-                        <div className="absolute -bottom-8 right-10 w-16 h-16 border-4 border-cyan-400/30 rounded-full"></div>
+                        <div className="absolute -top-6 lg:-top-10 -left-10 w-50 h-50 lg:w-56 lg:h-56 bg-linear-to-br from-cyan-400 to-cyan-500 opacity-15 rounded-3xl transform"></div>
+                        <div className="absolute top-5 lg:top-20 -right-3 lg:-right-8 w-18 h-18 lg:w-20 lg:h-20 bg-cyan-400 opacity-20 rounded-full"></div>
+                        <div className="absolute -bottom-5 lg:-bottom-8 right-7 lg:right-10 w-15 h-15 lg:w-16 lg:h-16 border-4 border-cyan-400/30 rounded-full"></div>
 
-                        <div className="relative grid grid-cols-2 gap-4">
+                        <div className="relative grid grid-cols-2 gap-2 lg:gap-4">
                             {/* Large image - spans 2 rows with enhanced styling */}
                             <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative group">
                                 <Image
@@ -44,7 +44,7 @@ export default function HomeAbout() {
 
                             {/* Top right image with icon badge */}
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
-                                <div className="relative h-58">
+                                <div className="relative h-36 lg:h-58">
                                     <Image
                                         src="/images/about2.avif"
                                         alt="Delivery Service"
@@ -67,7 +67,7 @@ export default function HomeAbout() {
 
                             {/* Middle right image with icon badge */}
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
-                                <div className="relative h-52">
+                                <div className="relative h-36 lg:h-52">
                                     <Image
                                         src="/images/about3.webp"
                                         alt="Bike Ride"
@@ -90,7 +90,7 @@ export default function HomeAbout() {
 
                             {/* Bottom full width image with premium styling */}
                             <div className="col-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
-                                <div className="relative h-60">
+                                <div className="relative h-54 lg:h-60">
                                     <Image
                                         src="/images/about4.avif"
                                         alt="Car Ride"

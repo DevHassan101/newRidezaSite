@@ -72,7 +72,7 @@ export default function HomeServices() {
 
     return (
         <>
-            <section className="services-section-main py-15 md:py-18 relative overflow-hidden">
+            <section className="services-section-main py-10 md:py-18 relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 bg-linear-to-b from-gray-50 via-white to-cyan-50/30 -z-10"></div>
                 <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-400/5 rounded-full blur-3xl -z-10"></div>
@@ -85,7 +85,7 @@ export default function HomeServices() {
                         <span className="font-semibold text-cyan-400">What we do</span>
                         <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="mt-6 md:mt-6 text-2xl md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
+                    <div className="mt-5 md:mt-6 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
                         <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-3">
                             Smart Services For
                         </span>
@@ -95,14 +95,14 @@ export default function HomeServices() {
                         </span>
                         <div className="absolute -bottom-4 left-0 right-0 w-40 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-10 md:mt-9 w-full md:max-w-xl mx-auto">
+                    <div className="mt-8 md:mt-9 w-full px-4 md:px-0 md:max-w-xl mx-auto">
                         <p className="text-[13px] md:text-[16px] text-black/80">We combine technical expertise with bold design to build products that matter crafting seamless interactions that connect brands with people.</p>
                     </div>
                 </div>
                 {/* services-header-end */}
 
                 {/* services-main-start */}
-                <div className="services-card-grid mt-15 px-4 md:px-8 lg:px-20">
+                <div className="services-card-grid mt-15 px-5 md:px-8 lg:px-20">
                     <div className="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, index) => (
                             <div key={service.id} className="service-card group relative bg-white/80 backdrop-blur-sm border-2 border-cyan-200 rounded-[28px] cursor-pointer overflow-hidden transition-all duration-700 hover:bg-white hover:border-cyan-400 hover:shadow-[0_20px_60px_-15px_rgba(6,182,212,0.3)] hover:-translate-y-3" style={{ animationDelay: `${index * 100}ms` }}>

@@ -41,10 +41,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-5" : isHome ? "bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-cyan-400"}`}>
+      <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-2" : isHome ? "bg-white/20 lg:bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-cyan-400"}`}>
         <nav className="flex justify-between items-center px-5 py-4 md:px-15">
           <div className="rideza-logo rounded-2xl">
-            <img src="/images/ridezalogo.png" width={105} alt="rideza-logo" />
+            <img src="/images/ridezalogo.png" className="w-20 lg:w-25" alt="rideza-logo" />
           </div>
           <ul className="hidden text-black text-[17px] font-medium lg:flex items-center gap-5 pb-1">
             {menu.map((item) => (
@@ -63,7 +63,7 @@ export default function Navbar() {
               </span>
             </Link>
             <button onClick={() => setIsOpen(!isOpen)} className={`lg:hidden text-3xl transition-all duration-300 
-              ${scrolled || isHome ? "text-white" : "text-white" }`}>
+              ${scrolled ? "text-cyan-400" : "text-white" }`}>
               {isOpen ? <IoMdClose /> : <FiMenu />}
             </button>
           </div>
@@ -71,12 +71,12 @@ export default function Navbar() {
         {/* mobile-menu */}
         {isOpen && (
           <div className={`lg:hidden p-5 border-t transition-all duration-300 
-            ${scrolled || isHome ? "border-white/20 bg-header" : "bg-red-900"}`}>
+            ${scrolled || isHome ? "border-white/20 bg-header" : "bg-cyan-400"}`}>
             <ul className="flex flex-col items-center gap-3">
               {menu.map((item) => (
                 <li key={item.path}>
                   <Link href={item.path} onClick={() => setIsOpen(false)} className={`font-medium transition-colors duration-300 
-                    ${scrolled || isHome ? pathname === item.path ? "text-red-400" : "text-white hover:text-red-400" : "text-white hover:text-red-600" }`}>
+                    ${scrolled ? "text-black" : "text-cyan-300 hover:text-cyan-400" }`}>
                     {item.name}
                   </Link>
                 </li>

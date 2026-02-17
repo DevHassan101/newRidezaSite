@@ -99,14 +99,14 @@ export default function HeroBanner() {
     return (
         <>
             <section className="hero-banner">
-                <div className="hero-image relative h-[200vh] md:h-[140vh] lg:h-auto">
+                <div className="hero-image relative h-[180vh] md:h-[140vh] lg:h-auto">
                     <img src="/images/herobanner2.avif" className="h-full lg:h-auto" alt="hero-banner" />
                     <div className="hero-image-overlay w-full px-5 md:px-15 lg:px-30 absolute top-0 left-0 h-full flex items-center justify-center"
                         style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 40%, rgba(6,182,212,0.5) 70%, rgba(34,211,238,0.4) 100%)' }}>
                         <div className="hero-overlay w-full flex flex-wrap justify-between items-center mt-24">
                             <div className="hero-box1 basis-full lg:basis-[37%] px-0 md:px-15 lg:px-0">
-                                <div className={`relative bg-white rounded-[20px] py-7 px-7 shadow-2xl w-full overflow-hidden transition-opacity duration-300 
-                                    ${ isTransitioning ? 'opacity-0' : 'opacity-100'}`} style={{ minHeight: '630px' }}>
+                                <div className={`relative bg-white rounded-[20px] py-7 px-7 shadow-2xl w-full h-auto lg:h-82 overflow-hidden transition-opacity duration-300 
+                                    ${ isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
                                     <div className="absolute top-0 left-0 w-20 h-20 bg-linear-to-br from-cyan-400 to-cyan-500 opacity-10 rounded-br-full"></div>
                                     <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-cyan-400 to-cyan-500 opacity-10 rounded-tl-full"></div>
                                     <div className="flex justify-between items-center mb-1 relative z-10">
@@ -132,14 +132,14 @@ export default function HeroBanner() {
                                             alt={currentService.name}/>
                                         </div>
                                     </div>
-                                    <div className="space-y-2 relative z-10">
+                                    <div className="space-y-5 lg:space-y-2 relative z-10">
                                         <div>
                                             <h2 className="text-[28px] font-bold text-gray-900 mb-0.5">
                                                 {currentService.name}
                                             </h2>
                                             <div className="w-14 h-1 bg-linear-to-r from-cyan-400 to-cyan-500 rounded-full"></div>
                                         </div>
-                                        <div className="h-20 overflow-hidden">
+                                        <div className="h-20">
                                             <p className="text-sm text-gray-600 leading-relaxed pt-1">
                                                 {currentService.description}
                                             </p>
@@ -185,18 +185,18 @@ export default function HeroBanner() {
                                 <div className="space-y-6">
                                     <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm px-5 py-2.5 rounded-full shadow-lg">
                                         <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
-                                        <span className="text-[13px] font-medium text-gray-800">
+                                        <span className="text-xs lg:text-[13px] font-medium text-gray-800">
                                             The Perfect Ride Awaits
                                         </span>
                                     </div>
-                                    <h1 className="text-5xl font-bold text-white leading-tight drop-shadow-lg">
+                                    <h1 className="text-3xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                                         Get Where You Need To
                                         <br />
                                         <span className="text-cyan-400">Go, Safely</span> and
                                         <span className="text-cyan-400 pl-2.5">Affordably</span>
                                     </h1>
                                     <div className="bg-white rounded-[18px] shadow-2xl p-6 space-y-5">
-                                        <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                                        <h2 className="text-[17px] lg:text-lg font-semibold text-gray-800 flex items-center gap-2">
                                             <HiLocationMarker className="text-cyan-500" size={22} />
                                             Add Your Location
                                         </h2>
@@ -204,16 +204,16 @@ export default function HeroBanner() {
                                             <div className="relative">
                                                 <FiMapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                                                 <input type="text" value={pickupLocation} onChange={(e) => setPickupLocation(e.target.value)}
-                                                placeholder="Enter Pickup Location" className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
+                                                placeholder="Enter Pickup Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
                                                 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300" />
                                             </div>
                                             <div className="relative">
                                                 <FiMapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                                                 <input type="text" value={dropLocation} onChange={(e) => setDropLocation(e.target.value)}
-                                                placeholder="Enter Drop Location" className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
+                                                placeholder="Enter Drop Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
                                                 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300" />
                                             </div>
-                                            <button type="submit" className="w-full bg-linear-to-r from-cyan-500 to-cyan-600 text-white font-semibold text-lg py-4 rounded-xl
+                                            <button type="submit" className="w-full bg-linear-to-r from-cyan-500 to-cyan-600 text-white font-semibold text-[17px] lg:text-lg py-4 rounded-xl
                                             hover:from-cyan-600 hover:to-cyan-700 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 group">
                                                 <span className="flex items-center justify-center gap-2">
                                                     Find Ride
@@ -226,16 +226,16 @@ export default function HeroBanner() {
                                         </form>
                                     </div>
                                     <div className="grid grid-cols-3 gap-4">
-                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-5 text-center shadow-lg">
-                                            <p className="text-2xl font-bold text-cyan-600">1000+</p>
+                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-4 lg:p-5 text-center shadow-lg">
+                                            <p className="text-xl lg:text-2xl font-bold text-cyan-600">1000+</p>
                                             <p className="text-xs text-gray-600 mt-1">Daily Rides</p>
                                         </div>
-                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-5 text-center shadow-lg">
-                                            <p className="text-2xl font-bold text-cyan-600">500+</p>
+                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-4 lg:p-5 text-center shadow-lg">
+                                            <p className="text-xl lg:text-2xl font-bold text-cyan-600">500+</p>
                                             <p className="text-xs text-gray-600 mt-1">Drivers</p>
                                         </div>
-                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-5 text-center shadow-lg">
-                                            <p className="text-2xl font-bold text-cyan-600">4.8 ★</p>
+                                        <div className="bg-white/95 backdrop-blur-sm rounded-[14px] p-4 lg:p-5 text-center shadow-lg">
+                                            <p className="text-xl lg:text-2xl font-bold text-cyan-600">4.8 ★</p>
                                             <p className="text-xs text-gray-600 mt-1">Rating</p>
                                         </div>
                                     </div>
