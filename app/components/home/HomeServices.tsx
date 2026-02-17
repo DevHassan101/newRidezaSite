@@ -85,7 +85,7 @@ export default function HomeServices() {
                         <span className="font-semibold text-cyan-400">What we do</span>
                         <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="mt-5 md:mt-6 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
+                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
                         <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-3">
                             Smart Services For
                         </span>
@@ -95,7 +95,7 @@ export default function HomeServices() {
                         </span>
                         <div className="absolute -bottom-4 left-0 right-0 w-40 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-8 md:mt-9 w-full px-4 md:px-0 md:max-w-xl mx-auto">
+                    <div className="mt-8 md:mt-8.5 w-full px-4 md:px-0 md:max-w-xl mx-auto">
                         <p className="text-[13px] md:text-[16px] text-black/80">We combine technical expertise with bold design to build products that matter crafting seamless interactions that connect brands with people.</p>
                     </div>
                 </div>

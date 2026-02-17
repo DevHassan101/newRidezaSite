@@ -99,13 +99,13 @@ export default function HeroBanner() {
     return (
         <>
             <section className="hero-banner">
-                <div className="hero-image relative h-[180vh] md:h-[140vh] lg:h-auto">
+                <div className="hero-image relative h-[220vh] md:h-[140vh] lg:h-auto">
                     <img src="/images/herobanner2.avif" className="h-full lg:h-auto" alt="hero-banner" />
                     <div className="hero-image-overlay w-full px-5 md:px-15 lg:px-30 absolute top-0 left-0 h-full flex items-center justify-center"
                         style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 40%, rgba(6,182,212,0.5) 70%, rgba(34,211,238,0.4) 100%)' }}>
                         <div className="hero-overlay w-full flex flex-wrap justify-between items-center mt-24">
                             <div className="hero-box1 basis-full lg:basis-[37%] px-0 md:px-15 lg:px-0">
-                                <div className={`relative bg-white rounded-[20px] py-7 px-7 shadow-2xl w-full h-auto lg:h-82 overflow-hidden transition-opacity duration-300 
+                                <div className={`relative bg-white rounded-[20px] py-7 px-7 shadow-2xl w-full h-auto lg:h-160 overflow-hidden transition-opacity duration-300 
                                     ${ isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
                                     <div className="absolute top-0 left-0 w-20 h-20 bg-linear-to-br from-cyan-400 to-cyan-500 opacity-10 rounded-br-full"></div>
                                     <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-cyan-400 to-cyan-500 opacity-10 rounded-tl-full"></div>
@@ -140,7 +140,7 @@ export default function HeroBanner() {
                                             <div className="w-14 h-1 bg-linear-to-r from-cyan-400 to-cyan-500 rounded-full"></div>
                                         </div>
                                         <div className="h-20">
-                                            <p className="text-sm text-gray-600 leading-relaxed pt-1">
+                                            <p className="text-sm text-gray-600 line-clamp-3 lg:line-clamp-none leading-relaxed pt-1">
                                                 {currentService.description}
                                             </p>
                                         </div>
