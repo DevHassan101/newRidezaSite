@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const menu = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/aboutus" },
+  { name: "About Us", path: "/about" },
   { name: "Fair Services", path: "/services" },
   { name: "Saftey", path: "/saftey" },
   { name: "Blog", path: "/blog" },
@@ -32,7 +32,7 @@ export default function Navbar() {
 
   const linkBaseLight = "relative px-3 py-2 transition-colors duration-30 text-black hover:text-cyan-400 after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0 after:w-0 after:h-1 after:bg-cyan-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-6";
 
-  const linkBaseDark = `relative px-3 py-2 transition-colors duration-300 ${scrolled ? "text-black" : "text-white"} hover:text-cyan-400 after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0 after:w-0 after:h-1 after:bg-cyan-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-6`;
+  const linkBaseDark = `relative px-3 py-2 transition-colors duration-300 ${scrolled ? "text-black" : "text-white"} hover:text-white after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0 after:w-0 after:h-1 after:bg-cyan-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-6`;
 
   const isActive = (path: string, isDark: boolean) => {
     const linkBase = isDark ? linkBaseDark : linkBaseLight;
@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-2" : isHome ? "bg-white/20 lg:bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-cyan-400"}`}>
+      <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-2" : isHome ? "bg-white/20 lg:bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400"}`}>
         <nav className="flex justify-between items-center px-5 py-4 md:px-15">
           <div className="rideza-logo rounded-2xl">
             <img src="/images/ridezalogo.png" className="w-20 lg:w-25" alt="rideza-logo" />

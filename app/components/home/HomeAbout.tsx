@@ -16,13 +16,8 @@ export default function HomeAbout() {
                         <div className="relative grid grid-cols-2 gap-2 lg:gap-4">
                             {/* Large image - spans 2 rows with enhanced styling */}
                             <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative group">
-                                <Image
-                                    src="/images/about1.jpg"
-                                    alt="Auto Ride"
-                                    width={300}
-                                    height={600}
-                                    className="object-cover w-full h-full"
-                                />
+                                <Image src="/images/about1.jpg" alt="Auto Ride" width={300} height={600}
+                                 className="object-cover w-full h-full" />
                                 {/* Gradient overlay on bottom */}
                                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/60 to-transparent"></div>
                                 {/* Service label */}
@@ -41,17 +36,11 @@ export default function HomeAbout() {
                                     </div>
                                 </div>
                             </div>
-
                             {/* Top right image with icon badge */}
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-36 lg:h-58">
-                                    <Image
-                                        src="/images/about2.avif"
-                                        alt="Delivery Service"
-                                        width={300}
-                                        height={400}
-                                        className="object-cover w-full h-full"
-                                    />
+                                    <Image src="/images/about2.avif" alt="Delivery Service" width={300} height={400}
+                                     className="object-cover w-full h-full" />
                                     {/* Icon badge */}
                                     <div className="absolute top-3 left-3 bg-cyan-400 rounded-lg p-2 shadow-md">
                                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,17 +53,11 @@ export default function HomeAbout() {
                                     </div>
                                 </div>
                             </div>
-
                             {/* Middle right image with icon badge */}
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-36 lg:h-52">
-                                    <Image
-                                        src="/images/about3.webp"
-                                        alt="Bike Ride"
-                                        width={300}
-                                        height={200}
-                                        className="object-cover w-full h-full"
-                                    />
+                                    <Image src="/images/about3.webp" alt="Bike Ride" width={300} height={200}
+                                     className="object-cover w-full h-full" />
                                     {/* Icon badge */}
                                     <div className="absolute top-3 left-3 bg-cyan-400 rounded-lg p-2 shadow-md">
                                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,20 +70,13 @@ export default function HomeAbout() {
                                     </div>
                                 </div>
                             </div>
-
                             {/* Bottom full width image with premium styling */}
                             <div className="col-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-54 lg:h-60">
-                                    <Image
-                                        src="/images/about4.avif"
-                                        alt="Car Ride"
-                                        width={600}
-                                        height={200}
-                                        className="object-cover w-full h-full"
-                                    />
+                                    <Image src="/images/about4.avif" alt="Car Ride" width={600} height={200}
+                                     className="object-cover w-full h-full" />
                                     {/* Gradient overlay */}
                                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-cyan-400/10"></div>
-
                                     {/* Premium badge with star */}
                                     <div className="absolute top-4 right-4 bg-linear-to-r from-cyan-400 to-cyan-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
                                         <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -108,7 +84,6 @@ export default function HomeAbout() {
                                         </svg>
                                         Most Popular
                                     </div>
-
                                     {/* Bottom info bar */}
                                     <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg flex items-center justify-between">
                                         <div>
@@ -133,12 +108,11 @@ export default function HomeAbout() {
                                 </div>
                             </div>
                         </div>
-
                         {/* Enhanced stats card with multiple metrics */}
-                        <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-2xl py-5 px-5 hidden lg:block border-2 border-cyan-50">
+                        <div className="absolute -top-7.5 -left-7.5 bg-white rounded-2xl shadow-2xl py-2 px-5 hidden lg:block border-2 border-cyan-50">
                             <div className="flex items-center gap-4">
                                 <div className="relative">
-                                    <div className="w-14 h-14 bg-linear-to-br from-cyan-400 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
+                                    <div className="w-12.5 h-12.5 bg-linear-to-br from-cyan-400 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
                                         <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                         </svg>
@@ -147,7 +121,7 @@ export default function HomeAbout() {
                                     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900">1000+</p>
+                                    <p className="text-[22px] font-bold text-gray-900">1000+</p>
                                     <p className="text-xs text-gray-600 font-medium">Happy Customers</p>
                                     <div className="flex items-center gap-1 mt-1">
                                         <svg className="w-3 h-3 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -163,34 +137,30 @@ export default function HomeAbout() {
                         {/* Premium tag with icon */}
                         <div className="inline-flex items-center gap-2 bg-cyan-50 px-4 py-2 rounded-full mb-5 border border-cyan-100">
                             <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                            <p className="text-sm font-bold text-cyan-600 uppercase tracking-wide">
+                            <p className="text-[13px] font-bold text-cyan-600 uppercase tracking-widest">
                                 Welcome to Rideza
                             </p>
                         </div>
-
                         {/* Creative heading with gradient */}
-                        <h2 className="text-4xl md:text-5xl lg:text-[55px] font-bold leading-tight mb-4">
+                        <h2 className="text-4xl md:text-5xl lg:text-[51px] font-bold leading-tight mb-4">
                             <span className="text-gray-900">Get Quick Rides,</span>
                             <br />
                             <span className="bg-linear-to-r from-cyan-500 via-cyan-400 to-cyan-600 bg-clip-text text-transparent">
                                 Low Fares
                             </span>
                         </h2>
-
                         {/* Decorative line */}
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-16 h-1.5 bg-linear-to-r from-cyan-400 to-cyan-500 rounded-full"></div>
+                            <div className="w-15 h-1.5 bg-linear-to-r from-cyan-400 to-cyan-500 rounded-full"></div>
                             <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
                             <div className="w-2 h-2 bg-cyan-300 rounded-full"></div>
                         </div>
-
                         {/* Description with better spacing */}
-                        <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10">
+                        <p className="text-gray-600 text-base md:text-[16.5px] leading-relaxed pr-10 mb-7">
                             In Rideza we ensure our customers get rides quickly at the most
                             affordable prices. We successfully cope with tasks of varying complexity,
                             provide long-term guarantees and regularly master new technologies.
                         </p>
-
                         {/* Enhanced feature cards */}
                         <div className="space-y-4 mb-10">
                             <div className="flex items-start gap-4 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
@@ -204,7 +174,6 @@ export default function HomeAbout() {
                                     <p className="text-sm text-gray-600">Always here to help you anytime, anywhere</p>
                                 </div>
                             </div>
-
                             <div className="flex items-start gap-4 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
                                 <div className="shrink-0 w-14 h-14 bg-linear-to-br from-cyan-400 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
                                     <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +186,6 @@ export default function HomeAbout() {
                                 </div>
                             </div>
                         </div>
-
                         {/* Premium CTA button */}
                         <div className="flex flex-wrap gap-4 items-center">
                             <button className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-400 to-cyan-500 text-white cursor-pointer px-8 py-4 rounded-full font-bold text-base shadow-lg">
