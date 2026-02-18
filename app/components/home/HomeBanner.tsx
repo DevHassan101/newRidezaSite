@@ -1,8 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FiMapPin } from "react-icons/fi";
-import { HiLocationMarker } from "react-icons/hi";
+
+const HiLocationMarker = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5.5 h-5.5" viewBox="0 0 256 256"><path fill="#06b6d4" d="M128 16a88.1 88.1 0 0 0-88 88c0 75.3 80 132.17 83.41 134.55a8 8 0 0 0 9.18 0C136 236.17 216 179.3 216 104a88.1 88.1 0 0 0-88-88m0 56a32 32 0 1 1-32 32a32 32 0 0 1 32-32" strokeWidth="3" stroke="#06b6d4" /></svg>
+);
+
+const FiMapPin = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2" viewBox="0 0 256 256"><path fill="#99a1af" d="M128 64a40 40 0 1 0 40 40a40 40 0 0 0-40-40m0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24m0-112a88.1 88.1 0 0 0-88 88c0 31.4 14.51 64.68 42 96.25a254.2 254.2 0 0 0 41.45 38.3a8 8 0 0 0 9.18 0a254.2 254.2 0 0 0 41.37-38.3c27.45-31.57 42-64.85 42-96.25a88.1 88.1 0 0 0-88-88m0 206c-16.53-13-72-60.75-72-118a72 72 0 0 1 144 0c0 57.23-55.47 105-72 118" strokeWidth="3" stroke="#99a1af" /></svg>
+);
 
 export default function HeroBanner() {
     const [pickupLocation, setPickupLocation] = useState("");
@@ -76,14 +82,14 @@ export default function HeroBanner() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIsTransitioning(true);
-            
+
             setTimeout(() => {
-                setCurrentServiceIndex((prevIndex) => 
+                setCurrentServiceIndex((prevIndex) =>
                     (prevIndex + 1) % services.length
                 );
                 setIsTransitioning(false);
             }, 300);
-            
+
         }, 4000);
 
         return () => clearInterval(interval);
@@ -106,7 +112,7 @@ export default function HeroBanner() {
                         <div className="hero-overlay w-full flex flex-wrap justify-between items-center mt-24">
                             <div className="hero-box1 basis-full lg:basis-[37%] px-0 md:px-15 lg:px-0">
                                 <div className={`relative bg-white rounded-[20px] py-7 px-7 shadow-2xl w-full h-auto lg:h-160 overflow-hidden transition-opacity duration-300 
-                                    ${ isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+                                    ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
                                     <div className="absolute top-0 left-0 w-20 h-20 bg-linear-to-br from-cyan-400 to-cyan-500 opacity-10 rounded-br-full"></div>
                                     <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-cyan-400 to-cyan-500 opacity-10 rounded-tl-full"></div>
                                     <div className="flex justify-between items-center mb-1 relative z-10">
@@ -129,7 +135,7 @@ export default function HeroBanner() {
                                         <div className="absolute inset-0 bg-linear-to-t from-cyan-50 to-transparent rounded-2xl"></div>
                                         <div className="flex justify-center items-center h-full relative z-10">
                                             <img src={currentService.image} className="max-w-full max-h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                                            alt={currentService.name}/>
+                                                alt={currentService.name} />
                                         </div>
                                     </div>
                                     <div className="space-y-5 lg:space-y-2 relative z-10">
@@ -176,7 +182,7 @@ export default function HeroBanner() {
                                     <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2">
                                         {services.map((_, index) => (
                                             <div key={index} className={`h-1.5 rounded-full transition-all duration-300 
-                                                ${ index === currentServiceIndex ? 'w-6 bg-cyan-500' : 'w-1.5 bg-gray-300' }`} />
+                                                ${index === currentServiceIndex ? 'w-6 bg-cyan-500' : 'w-1.5 bg-gray-300'}`} />
                                         ))}
                                     </div>
                                 </div>
@@ -197,20 +203,20 @@ export default function HeroBanner() {
                                     </h1>
                                     <div className="bg-white rounded-[18px] shadow-2xl p-6 space-y-5">
                                         <h2 className="text-[17px] lg:text-lg font-semibold text-gray-800 flex items-center gap-2">
-                                            <HiLocationMarker className="text-cyan-500" size={22} />
+                                            <HiLocationMarker />
                                             Add Your Location
                                         </h2>
                                         <form onSubmit={handleFindRide} className="space-y-4">
                                             <div className="relative">
-                                                <FiMapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                                                <FiMapPin/>
                                                 <input type="text" value={pickupLocation} onChange={(e) => setPickupLocation(e.target.value)}
-                                                placeholder="Enter Pickup Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
+                                                    placeholder="Enter Pickup Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
                                                 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300" />
                                             </div>
                                             <div className="relative">
-                                                <FiMapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                                                <FiMapPin/>
                                                 <input type="text" value={dropLocation} onChange={(e) => setDropLocation(e.target.value)}
-                                                placeholder="Enter Drop Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
+                                                    placeholder="Enter Drop Location" className="w-full pl-12 text-[17px] lg:text-lg pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder:text-gray-400 
                                                 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300" />
                                             </div>
                                             <button type="submit" className="w-full bg-linear-to-r from-cyan-500 to-cyan-600 text-white font-semibold text-[17px] lg:text-lg py-4 rounded-xl
