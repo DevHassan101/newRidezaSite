@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="relative z-10 px-8 lg:px-28 pt-10 pb-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start items-center gap-3">
-            <img src="./images/ridezalogo.png" className="w-35" alt="Rideza Logo" />
+            <img src="/images/ridezalogo.webp" width="140" height="50" className="w-34 lg:w-35" alt="rideza-logo" />
           </div>
           <p className="text-white text-[15px] leading-relaxed text-center">
             Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.

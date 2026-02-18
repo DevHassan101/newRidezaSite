@@ -53,8 +53,8 @@ export default function Navbar() {
     <>
       <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-2" : isHome ? "bg-white/20 lg:bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400"}`}>
         <nav className="flex justify-between items-center px-5 py-4 md:px-15">
-          <div className="rideza-logo rounded-2xl">
-            <img src="/images/ridezalogo.png" className="w-20 lg:w-25" alt="rideza-logo" />
+          <div className="rideza-logo">
+            <img src="/images/ridezalogo.webp" width="140" height="50" className="w-20 lg:w-24.5" alt="rideza-logo" />
           </div>
           <ul className="hidden text-black text-[17px] font-medium lg:flex items-center gap-5 pb-1">
             {menu.map((item) => (
@@ -66,9 +66,10 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-4">
-            <Link href="/contact-us" className="hidden md:flex items-center bg-cyan-400 text-md tracking-wider font-medium text-white pl-6 pr-4 py-2 rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300">
+            <Link href="/contact-us" className="hidden md:flex items-center bg-cyan-600 text-md tracking-wider 
+             font-medium text-white pl-6 pr-4 py-2 rounded-full hover:bg-cyan-700 transition-all duration-300">
               Get Ride's
-              <span className="ml-2 w-8 h-8 flex items-center justify-center rounded-full bg-white text-cyan-400">
+              <span className="ml-2 w-8 h-8 flex items-center justify-center rounded-full bg-white text-cyan-600">
                 {bookRideIcon()}
               </span>
             </Link>

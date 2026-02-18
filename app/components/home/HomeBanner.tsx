@@ -26,7 +26,7 @@ export default function HeroBanner() {
                     <img src="/images/herobanner2.avif" className="w-full h-full object-cover" alt="hero-banner" />
                     <div className="hero-image-overlay w-full absolute top-0 left-0 h-full flex items-center justify-center"
                         style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 40%, rgba(6,182,212,0.5) 70%, rgba(34,211,238,0.4) 100%)' }}>
-                        <div className="w-full hero-overlay mt-15">
+                        <div className="w-full hero-overlay">
                             <div className="hero-box2 max-w-[85%] lg:max-w-[55%] mx-auto">
                                 <div className="space-y-6 flex lg:block flex-wrap justify-center items-center">
                                     <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm px-5 py-2 lg:py-2.5 rounded-full shadow-lg">
