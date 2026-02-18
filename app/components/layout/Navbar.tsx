@@ -66,8 +66,8 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-4">
-            <Link href="/contact-us" className="hidden md:flex items-center bg-cyan-600 text-md tracking-wider 
-             font-medium text-white pl-6 pr-4 py-2 rounded-full hover:bg-cyan-700 transition-all duration-300">
+            <Link href="/contact" className="hidden md:flex items-center bg-cyan-600 text-lg tracking-tight 
+              font-semibold text-white pl-6 pr-4 py-2 rounded-full hover:bg-cyan-700 transition-all duration-300">
               Get Ride's
               <span className="ml-2 w-8 h-8 flex items-center justify-center rounded-full bg-white text-cyan-600">
                 {bookRideIcon()}
