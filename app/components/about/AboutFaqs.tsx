@@ -47,7 +47,7 @@ function AccordionItem({ faq, isOpen, onToggle }: { faq: (typeof faqs)[0]; isOpe
                     </svg>
                 </div>
                 <div className="flex-1 px-5 py-4">
-                    <span className={`text-[15px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${isOpen ? "text-cyan-600" : "text-gray-800 group-hover:text-cyan-600"}`}>
+                    <span className={`text-sm md:text-[15px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${isOpen ? "text-cyan-600" : "text-gray-800 group-hover:text-cyan-600"}`}>
                         {faq.question}
                     </span>
                 </div>
@@ -57,7 +57,7 @@ function AccordionItem({ faq, isOpen, onToggle }: { faq: (typeof faqs)[0]; isOpe
                 <div className="overflow-hidden">
                     <div className="relative z-10 flex items-start gap-4 px-6 pt-5 pb-5">
                         <div className="shrink-0 w-0.5 self-stretch bg-linear-to-b from-cyan-400 to-cyan-200 rounded-full ml-3.5" />
-                        <p className="text-gray-500 text-[14px] leading-relaxed">{faq.answer}</p>
+                        <p className="text-gray-500 text-[13px] md:text-[14px] leading-relaxed">{faq.answer}</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ export default function NewsFaqSection() {
     const [openId, setOpenId] = useState<number | null>(1);
 
     return (
-        <section className="bg-white relative py-10 md:py-20 px-5 md:px-10 lg:px-30 overflow-hidden">
+        <section className="bg-white relative py-10 md:py-20 px-7 lg:px-30 overflow-hidden">
             <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-400/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="w-full relative z-10">
@@ -113,15 +113,15 @@ export default function NewsFaqSection() {
                         <span className="font-semibold text-cyan-400">Rideza Good Ride</span>
                         <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
-                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-3">Our Latest</span>
+                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[30px] md:text-3xl lg:text-[40px] font-bold tracking-tight leading-[1.1] relative">
+                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-2">Our Latest</span>
                         <span className="bg-linear-to-r from-cyan-400 via-cyan-500 to-cyan-400 bg-clip-text text-transparent">
                             Newses & FAQ's
                         </span>
                         <div className="absolute -bottom-4 left-0 right-0 w-40 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-8 w-full px-4 md:px-0 md:max-w-xl mx-auto">
-                        <p className="text-[13px] md:text-[16px] text-black/80">Stay updated with the latest CityCab news and find quick answers to your most common questions.</p>
+                    <div className="mt-10 lg:mt-8 w-full px-2 md:px-0 md:max-w-xl mx-auto">
+                        <p className="text-sm md:text-[16px] text-black/80">Stay updated with the latest CityCab news and find quick answers to your most common questions.</p>
                     </div>
                 </div>
                 {/* benefits-header-end */}

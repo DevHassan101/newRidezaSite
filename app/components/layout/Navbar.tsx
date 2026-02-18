@@ -13,7 +13,7 @@ const menu = [
   { name: "Fair Services", path: "/services" },
   { name: "Safety", path: "/safety" },
   { name: "Blog", path: "/blog" },
-  { name: "Contact Us", path: "/contact-us" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 export default function Navbar() {

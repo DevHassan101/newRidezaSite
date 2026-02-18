@@ -261,7 +261,7 @@ function VehicleStage() {
 
     return (
         <div className="flex items-center justify-center order-first md:order-0">
-            <div className="relative w-full max-w-100 mb-10">
+            <div className="relative w-full max-w-85 lg:max-w-100 mb-10">
                 <div className="absolute inset-0 rounded-full bg-linear-to-br from-cyan-300/30 to-cyan-600/10 blur-3xl scale-125 pointer-events-none" />
                 <div className="relative rounded-full border-2 border-cyan-400/30 bg-linear-to-br from-cyan-50 to-white shadow-[0_0_20px_rgba(6,182,212,0.18)] overflow-hidden"
                     style={{ aspectRatio: "1/1" }}>
@@ -330,7 +330,7 @@ function FeatureCard({ item, align }: { item: FeatureItem; align: "left" | "righ
 
 export default function LatestFeatures() {
     return (
-        <section className="bg-white relative py-10 md:py-15 px-5 md:px-10 lg:px-28 overflow-hidden">
+        <section className="bg-white relative py-10 md:py-15 px-8 lg:px-28 overflow-hidden">
             <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-400/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -342,15 +342,15 @@ export default function LatestFeatures() {
                         <span className="font-semibold text-cyan-400">Latest Features</span>
                         <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
-                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-3">Check Out Our</span>
+                    <div className="mt-5 md:mt-6 px-2 md:px-0 text-[30px] md:text-3xl lg:text-[40px] font-bold tracking-tight leading-[1.1] relative">
+                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-2">Check Out Our</span>
                         <span className="bg-linear-to-r from-cyan-400 via-cyan-500 to-cyan-400 bg-clip-text text-transparent">
                             Best Features
                         </span>
-                        <div className="absolute -bottom-4 left-0 right-0 w-40 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
+                        <div className="absolute -bottom-4 left-0 right-0 w-50 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-8 w-full px-4 md:px-0 md:max-w-xl mx-auto">
-                        <p className="text-[13px] md:text-[16px] text-black/80">We combine technical expertise with bold design to build products that matter crafting seamless interactions that connect brands with people.</p>
+                    <div className="mt-10 lg:mt-8 w-full px-1 md:px-0 md:max-w-xl mx-auto">
+                        <p className="text-sm md:text-[16px] text-black/80">We combine technical expertise with bold design build products that matter interactions that connect brands with people.</p>
                     </div>
                 </div>
                 {/* benefits-header-end */}
@@ -368,7 +368,6 @@ export default function LatestFeatures() {
                     </div>
                 </div>
             </div>
-
             <style>{`
                 @keyframes spin {
                     from { transform: rotate(0deg); }

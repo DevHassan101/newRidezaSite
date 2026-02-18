@@ -72,10 +72,8 @@ const StarIcon = () => (
 
 const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0] }) => (
     <div className="service-card group relative bg-white/80 backdrop-blur-sm border border-cyan-300 rounded-[28px] cursor-pointer overflow-hidden transition-all duration-700 hover:bg-white hover:border-cyan-400 hover:shadow-[0_20px_60px_-15px_rgba(6,182,212,0.3)] hover:-translate-y-3 h-full flex flex-col">
-
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-linear-to-br from-cyan-300/20 via-cyan-400/10 to-transparent rounded-full blur-2xl group-hover:scale-150 group-hover:opacity-100 opacity-70 transition-all duration-700"></div>
         <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-linear-to-tr from-cyan-400/15 via-cyan-300/10 to-transparent rounded-full blur-2xl group-hover:scale-150 group-hover:opacity-100 opacity-70 transition-all duration-700"></div>
-
         <div className="relative z-10 px-9 py-11 flex flex-col flex-1">
             <div className="absolute top-4 right-4 w-14 h-14 bg-linear-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center text-white shadow-sm shadow-cyan-500/40 group-hover:rotate-360 group-hover:scale-110 transition-all duration-700">
                 <QuoteIcon />
@@ -108,14 +106,13 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
                 </div>
             </div>
         </div>
-
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-400 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 shadow-[0_0_10px_rgba(6,182,212,0.6)]"></div>
     </div>
 );
 
 export default function TestimonialsSlider() {
     return (
-        <section className="relative overflow-hidden py-16 md:py-20 px-4 md:px-8 lg:px-20">
+        <section className="relative overflow-hidden py-15 md:py-20 px-7 lg:px-26">
             <div className="w-full relative z-10">
                 <div className="testimonials-header text-center relative">
                     <div className="inline-flex items-center gap-3 text-xs md:text-sm text-white uppercase tracking-widest">
@@ -123,8 +120,8 @@ export default function TestimonialsSlider() {
                         <span className="font-semibold text-cyan-400">Happy Clients</span>
                         <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[28px] md:text-3xl lg:text-[40px] font-bold leading-[1.1] relative">
-                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-3">
+                    <div className="mt-5 md:mt-6 px-3 md:px-0 text-[30px] md:text-3xl lg:text-[40px] font-bold tracking-tight leading-[1.1] relative">
+                        <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-2">
                             What Our
                         </span>
                         <span className="bg-linear-to-r from-cyan-400 via-cyan-500 to-cyan-400 bg-clip-text text-transparent bg-size-[200%_auto] animate-gradient">
@@ -132,14 +129,12 @@ export default function TestimonialsSlider() {
                         </span>
                         <div className="absolute -bottom-4 left-0 right-0 w-40 md:w-95 mx-auto h-[1.5px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
                     </div>
-                    <div className="mt-8 md:mt-8.5 w-full px-4 md:px-0 md:max-w-xl mx-auto">
+                    <div className="mt-10 lg:mt-8.5 w-full px-4 md:px-0 md:max-w-xl mx-auto">
                         <p className="text-[13px] md:text-[16px] text-black/80">We combine technical expertise with bold design to build products that matter crafting seamless interactions that connect brands with people.</p>
                     </div>
                 </div>
-
-                <div className="relative testimonials-swiper-container mt-10">
-                    <Swiper
-                        modules={[Navigation, Pagination, A11y]}
+                <div className="relative testimonials-swiper-container mt-7 lg:mt-10">
+                    <Swiper modules={[Navigation, Pagination, A11y]}
                         spaceBetween={24}
                         slidesPerView={1}
                         navigation={{
@@ -151,16 +146,14 @@ export default function TestimonialsSlider() {
                             640: { slidesPerView: 2, spaceBetween: 20 },
                             1024: { slidesPerView: 3, spaceBetween: 24 },
                         }}
-                        className="pt-5! pb-5"
-                    >
+                        className="pt-5! pb-5">
                         {testimonials.map((testimonial) => (
                             <SwiperSlide key={testimonial.id} className="pb-6 h-auto">
                                 <TestimonialCard testimonial={testimonial} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    <div className="flex items-center justify-center gap-5 mt-6">
+                    <div className="flex items-center justify-center gap-5 mt-4 lg:mt-6">
                         <button className="swiper-prev-btn cursor-pointer w-12 h-12 rounded-2xl bg-linear-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-110 active:scale-95">
                             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
