@@ -37,35 +37,35 @@ export default function HomeServices() {
             id: 2,
             title: "Auto Rickshaw",
             description: "Comfortable auto rickshaw rides for short distances. Perfect for navigating through city traffic with ease and convenience.",
-            image: "/images/serv6.png",
+            image: "/images/serv2.jpeg",
             icon: <RickshawIcon />,
         },
         {
             id: 3,
             title: "Premium Rickshaw",
             description: "Upgraded rickshaw experience with modern amenities. Travel in style with our premium auto rickshaw fleet.",
-            image: "/images/serv5.webp",
+            image: "/images/serv5.jpg",
             icon: <StarIcon />,
         },
         {
             id: 4,
             title: "Parcel Delivery",
             description: "Quick and secure parcel delivery service. Send packages across the city with real-time tracking and guaranteed safety.",
-            image: "/images/serv4.webp",
+            image: "/images/serv4.jpg",
             icon: <PackageIcon />,
         },
         {
             id: 5,
             title: "Car Rides",
             description: "Comfortable sedan rides for longer journeys. Enjoy air-conditioned comfort with professional drivers.",
-            image: "/images/serv1.webp",
+            image: "/images/serv1.jpg",
             icon: <CarIcon />,
         },
         {
             id: 6,
             title: "SUV Premium",
             description: "Spacious SUV rides for family trips and group travel. Experience luxury and comfort on every journey.",
-            image: "/images/serv2.png",
+            image: "/images/serv6.jpeg",
             icon: <SUVIcon />,
         }
     ];
@@ -110,7 +110,7 @@ export default function HomeServices() {
                                     <div className="relative mb-6">
                                         <div className="card-img w-full h-52 bg-linear-to-br from-cyan-50/80 via-cyan-100/40 to-transparent border border-cyan-400/40 rounded-2xl flex justify-center items-center p-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
                                             <div className="absolute inset-0 bg-linear-to-tr from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                            <img src={service.image} className="w-full h-full object-contain drop-shadow-2xl relative z-10 group-hover:scale-110 transition-transform duration-500"
+                                            <img src={service.image} className="mix-blend-multiply w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500"
                                                 alt={service.title} />
                                         </div>
                                         <div className="absolute -top-3 -right-3 w-14 h-14 text-white bg-linear-to-br from-cyan-400 to-cyan-600 rounded-[14px] flex items-center justify-center text-2xl shadow-sm shadow-cyan-500/40 group-hover:rotate-10 group-hover:scale-110 transition-all duration-700">
