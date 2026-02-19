@@ -73,8 +73,8 @@ export default function Navbar() {
                 {bookRideIcon()}
               </span>
             </Link>
-            <button onClick={() => setIsOpen(!isOpen)} className={`lg:hidden text-3xl transition-all duration-300 
-              ${scrolled ? "text-cyan-400" : isHome ? "text-white" : "text-cyan-400"}`}>
+            <button onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close menu" : "Open menu"}
+              className={`lg:hidden text-3xl transition-all duration-300 ${scrolled ? "text-cyan-400" : isHome ? "text-white" : "text-cyan-400"}`}>
               {isOpen ? <IoMdClose /> : <FiMenu />}
             </button>
           </div>

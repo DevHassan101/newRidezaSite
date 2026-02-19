@@ -17,7 +17,7 @@ export default function HomeAbout() {
                             {/* Large image - spans 2 rows with enhanced styling */}
                             <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative group">
                                 <Image src="/images/about1.jpg" alt="Auto Ride" width={300} height={600}
-                                 className="object-cover w-full h-full" />
+                                    className="object-cover w-full h-full" />
                                 {/* Gradient overlay on bottom */}
                                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/60 to-transparent"></div>
                                 {/* Service label */}
@@ -40,7 +40,7 @@ export default function HomeAbout() {
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-36 lg:h-58">
                                     <Image src="/images/about2.avif" alt="Delivery Service" width={300} height={400}
-                                     className="object-cover w-full h-full" />
+                                        className="object-cover w-full h-full" />
                                     {/* Icon badge */}
                                     <div className="absolute top-3 left-3 bg-cyan-400 rounded-lg p-2 shadow-md">
                                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@ export default function HomeAbout() {
                             <div className="rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-36 lg:h-52">
                                     <Image src="/images/about3.webp" alt="Bike Ride" width={300} height={200}
-                                     className="object-cover w-full h-full" />
+                                        className="object-cover w-full h-full" />
                                     {/* Icon badge */}
                                     <div className="absolute top-3 left-3 bg-cyan-400 rounded-lg p-2 shadow-md">
                                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ export default function HomeAbout() {
                             <div className="col-span-2 rounded-2xl overflow-hidden shadow-xl border-3 border-white relative">
                                 <div className="relative h-54 lg:h-60">
                                     <Image src="/images/about4.avif" alt="Car Ride" width={600} height={200}
-                                     className="object-cover w-full h-full" />
+                                        className="object-cover w-full h-full" />
                                     {/* Gradient overlay */}
                                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-cyan-400/10"></div>
                                     {/* Premium badge with star */}
@@ -135,9 +135,9 @@ export default function HomeAbout() {
                     </div>
                     <div className="order-1 lg:order-2 relative z-10">
                         {/* Premium tag with icon */}
-                        <div className="inline-flex items-center gap-2 bg-cyan-50 px-4 py-2 rounded-full mb-5 border border-cyan-100">
-                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                            <p className="text-[13px] font-bold text-cyan-600 uppercase tracking-widest">
+                        <div className="inline-flex items-center gap-2 bg-cyan-100 px-4 py-2 rounded-full mb-5 border border-cyan-200">
+                            <div className="w-2 h-2 bg-cyan-700 rounded-full animate-pulse"></div>
+                            <p className="text-[13px] font-bold text-cyan-800 uppercase tracking-widest">
                                 Welcome to Rideza
                             </p>
                         </div>
@@ -197,13 +197,13 @@ export default function HomeAbout() {
                             {/* Secondary info */}
                             <div className="flex items-center gap-2 text-sm text-gray-600">
                                 <div className="flex -space-x-2">
-                                    <div className="w-8 h-8 flex justify-center items-center rounded-full bg-cyan-300 border-2 border-white">
+                                    <div className="w-8 h-8 flex justify-center items-center rounded-full bg-cyan-600 border-2 border-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20"><path fill="#fff" fillRule="evenodd" d="M10 4.543c-1.25-.98-2.965-1.245-4.432-.895C3.678 4.1 2 5.621 2 8.163c0 3.326 2.88 6.016 7.571 8.24a1 1 0 0 0 .857 0C15.12 14.18 18 11.49 18 8.164c0-2.542-1.678-4.064-3.568-4.515c-1.467-.35-3.183-.084-4.432.895" clipRule="evenodd" /></svg>
                                     </div>
-                                    <div className="w-8 h-8 flex justify-center items-center rounded-full bg-cyan-400 border-2 border-white">
+                                    <div className="w-8 h-8 flex justify-center items-center rounded-full bg-cyan-600 border-2 border-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 512 512"><path fill="#fff" d="M294.396 52.127c-17.944.066-35.777 1.834-52.886 4.746c-86.727 14.76-135.612 53.467-161.99 107.824c31.215-2.434 62.002-5.024 91.966-4.838c24.114.15 47.696 2.097 70.54 7.37c15.15 3.5 24.652 16.647 27.607 31.735s.858 32.92-5.055 51.553l-.287.904l-.468.826c-7.762 13.64-24.263 24.498-45.295 35.994c-21.032 11.497-46.695 22.693-72.27 32.428s-51.012 17.98-71.575 23.437c-7.254 1.925-13.85 3.48-19.735 4.657c2.275 31.13 6.562 63.38 12.008 95.98c140.118-38.25 273.5-79.888 403.51-123.254c25.935-44.457 29.927-86.448 16.967-126.734c-22.393-69.605-60.9-107.048-105.215-126.168c-27.696-11.95-57.913-16.57-87.82-16.46zM130.184 179.205c-9.06.51-18.265 1.156-27.532 1.836L59.31 329.386c3.384-.79 6.936-1.663 10.754-2.676a531 531 0 0 0 12.66-3.554c10.022-31.07 43.3-131.415 47.46-143.95zm-46.7 3.262c-10.868.826-21.824 1.654-32.908 2.37c-.32.445-.714.947-1.318 2.267c-1.58 3.45-3.375 9.418-4.912 16.724c-3.075 14.612-5.37 34.727-6.705 54.877c-1.333 20.15-1.73 40.438-1.193 55.582c.268 7.572.79 13.905 1.442 17.96c.048.306.078.312.13.59c.46-.01 1.033-.044 1.546-.064zM224 183c-15.596 0-28.66 12.582-28.66 28.152s13.064 28.155 28.66 28.155s28.66-12.584 28.66-28.155c0-15.57-13.064-28.152-28.66-28.152m0 18c6.12 0 10.66 4.567 10.66 10.152c0 5.586-4.54 10.155-10.66 10.155s-10.66-4.57-10.66-10.155S217.88 201 224 201m230.19 144.865C330.383 386.852 203.285 426.23 70.054 462.56c.413 2.317.81 4.63 1.232 6.948c147.607-26.65 255.974-68.965 371.36-109.164a309 309 0 0 0 11.546-14.48z" strokeWidth="13" stroke="#fff" /></svg>
                                     </div>
-                                    <div className="w-8 h-8 rounded-full bg-cyan-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white">
+                                    <div className="w-8 h-8 rounded-full bg-cyan-700 border-2 border-white flex items-center justify-center text-xs font-bold text-white">
                                         +500
                                     </div>
                                 </div>

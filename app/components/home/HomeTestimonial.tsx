@@ -61,7 +61,7 @@ const testimonials = [
 ];
 
 const QuoteIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" viewBox="0 0 25 24"><path fill="#fff" d="m7.449 18.177l-.322-.677za.75.75 0 0 1-1.072-.677v-2.557a4.628 4.628 0 0 1 .75-9.193a4.627 4.627 0 0 1 4.626 4.627c0 2.845-1.049 4.796-2.12 6.034a8 8 0 0 1-1.47 1.333a6 6 0 0 1-.647.4l-.045.023l-.014.006l-.006.003zM4 10.377c0 1.726 1.4 3.126 3.127 3.126a.75.75 0 0 1 .75.75v1.807c.198-.176.41-.386.62-.63c.867-1.001 1.756-2.612 1.756-5.053a3.127 3.127 0 0 0-6.253 0m14.199 7.8l-.322-.677za.75.75 0 0 1-1.072-.677v-2.557a4.628 4.628 0 0 1 .75-9.193a4.627 4.627 0 0 1 4.626 4.627c0 2.845-1.049 4.796-2.12 6.034a8 8 0 0 1-1.47 1.333a6 6 0 0 1-.692.422l-.014.008l-.006.002zm-3.449-7.8c0 1.726 1.4 3.126 3.127 3.126a.75.75 0 0 1 .75.75v1.807c.198-.176.41-.386.62-.63c.867-1.001 1.756-2.612 1.756-5.053a3.127 3.127 0 0 0-6.253 0"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" viewBox="0 0 25 24"><path fill="#fff" d="m7.449 18.177l-.322-.677za.75.75 0 0 1-1.072-.677v-2.557a4.628 4.628 0 0 1 .75-9.193a4.627 4.627 0 0 1 4.626 4.627c0 2.845-1.049 4.796-2.12 6.034a8 8 0 0 1-1.47 1.333a6 6 0 0 1-.647.4l-.045.023l-.014.006l-.006.003zM4 10.377c0 1.726 1.4 3.126 3.127 3.126a.75.75 0 0 1 .75.75v1.807c.198-.176.41-.386.62-.63c.867-1.001 1.756-2.612 1.756-5.053a3.127 3.127 0 0 0-6.253 0m14.199 7.8l-.322-.677za.75.75 0 0 1-1.072-.677v-2.557a4.628 4.628 0 0 1 .75-9.193a4.627 4.627 0 0 1 4.626 4.627c0 2.845-1.049 4.796-2.12 6.034a8 8 0 0 1-1.47 1.333a6 6 0 0 1-.692.422l-.014.008l-.006.002zm-3.449-7.8c0 1.726 1.4 3.126 3.127 3.126a.75.75 0 0 1 .75.75v1.807c.198-.176.41-.386.62-.63c.867-1.001 1.756-2.612 1.756-5.053a3.127 3.127 0 0 0-6.253 0" /></svg>
 );
 
 const StarIcon = () => (
@@ -85,7 +85,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
                     </span>
                 ))}
             </div>
-            <p className="text-gray-800 text-[13.5px] md:text-[15px] font-medium leading-relaxed flex-1 mb-6">
+            <p className="text-black/80 text-[13px] md:text-[15px] font-medium leading-relaxed flex-1 mb-6">
                 "{testimonial.text}"
             </p>
             <div className="w-full h-px bg-linear-to-r from-transparent via-cyan-200 to-transparent mb-5 group-hover:via-cyan-400 transition-colors duration-500"></div>
@@ -100,7 +100,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
                     <h4 className="font-bold text-gray-900 text-[15px] group-hover:text-cyan-600 transition-colors duration-300">
                         {testimonial.name}
                     </h4>
-                    <p className="text-cyan-500 text-xs font-medium mt-0.5">
+                    <p className="text-cyan-700 text-xs font-medium mt-0.5">
                         {testimonial.location}
                     </p>
                 </div>
@@ -116,9 +116,9 @@ export default function TestimonialsSlider() {
             <div className="w-full relative z-10">
                 <div className="testimonials-header text-center relative">
                     <div className="inline-flex items-center gap-3 text-xs md:text-sm text-white uppercase tracking-widest">
-                        <span className="w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(59,187,252,0.8)] animate-pulse" />
-                        <span className="font-semibold text-cyan-400">Happy Clients</span>
-                        <div className="w-8 h-px bg-linear-to-r from-cyan-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                        <span className="w-2 h-2 bg-cyan-600 rounded-full shadow-[0_0_10px_rgba(8,145,178,0.8)] animate-pulse" />
+                        <span className="font-semibold text-cyan-600">Happy Clients</span>
+                        <div className="w-8 h-px bg-linear-to-r from-cyan-600 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="mt-5 md:mt-6 px-3 md:px-0 text-[30px] md:text-3xl lg:text-[40px] font-bold tracking-tight leading-[1.1] relative">
                         <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-2">
