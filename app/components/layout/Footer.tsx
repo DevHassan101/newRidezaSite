@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const usefulLinksLeft = [
   { label: "About", href: "#" },
@@ -23,7 +24,7 @@ const PhoneIcon = () => (
 export default function Footer() {
   return (
     <footer className="bg-cyan-400 text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)", backgroundSize: "28px 28px" }}/>
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-black/5 rounded-full blur-3xl pointer-events-none" />
@@ -31,7 +32,7 @@ export default function Footer() {
       <div className="relative z-10 px-8 lg:px-28 pt-10 pb-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start items-center gap-3">
-            <img src="/images/ridezalogo.webp" width="140" height="50" className="w-34 lg:w-35" alt="rideza-logo" />
+            <Image src="/images/ridezalogo.webp" width={140} height={50} sizes="(max-width: 1024px) 100px, 120px" alt="rideza-logo" priority />
           </div>
           <p className="text-white text-[15px] leading-relaxed text-center">
             Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.

@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
+import Image from "next/image";
 // @ts-ignore
 import "swiper/css";
 // @ts-ignore
@@ -15,7 +16,7 @@ const testimonials = [
         text: "CityCab is my favorite taxi company ever! Cool drivers, amazing cars, top notch services! You won't believe it, but they actually didn't took any tip 🙂",
         name: "Diego Furlan",
         location: "Lives in: Barcelona",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+        avatar: "/images/testi1.webp",
         rating: 5,
     },
     {
@@ -23,7 +24,7 @@ const testimonials = [
         text: "CityCab is my favorite taxi company ever! Cool drivers, amazing cars, top notch services! You won't believe it, but they actually didn't took any tip 🙂",
         name: "Samantha Jones",
         location: "Lives in: Vienna",
-        avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+        avatar: "/images/testi2.webp",
         rating: 5,
     },
     {
@@ -31,7 +32,7 @@ const testimonials = [
         text: "Absolutely amazing experience from start to finish. The driver was punctual, the car was spotless, and the ride was smooth. CityCab never disappoints! 🚕",
         name: "Marcus Webb",
         location: "Lives in: London",
-        avatar: "https://randomuser.me/api/portraits/men/68.jpg",
+        avatar: "/images/testi3.webp",
         rating: 5,
     },
     {
@@ -39,7 +40,7 @@ const testimonials = [
         text: "I've tried every taxi service in the city, but nothing comes close to CityCab. Professional, reliable, and the drivers are always so friendly and helpful.",
         name: "Lena Kovač",
         location: "Lives in: Zagreb",
-        avatar: "https://randomuser.me/api/portraits/women/26.jpg",
+        avatar: "/images/testi4.webp",
         rating: 5,
     },
     {
@@ -47,7 +48,7 @@ const testimonials = [
         text: "Five stars isn't enough! CityCab went above and beyond during my airport trip. On time, professional, and even helped with my luggage. Will use forever! ⭐",
         name: "Takeshi Mori",
         location: "Lives in: Tokyo",
-        avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+        avatar: "/images/testi2.webp",
         rating: 5,
     },
     {
@@ -55,7 +56,7 @@ const testimonials = [
         text: "Best taxi service hands down. The app is seamless, the cars are clean, and the drivers know the city like the back of their hand. CityCab for life! 🙌",
         name: "Amara Diallo",
         location: "Lives in: Paris",
-        avatar: "https://randomuser.me/api/portraits/women/57.jpg",
+        avatar: "/images/testi1.webp",
         rating: 5,
     },
 ];
@@ -92,7 +93,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: (typeof testimonials)[0
             <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
                     <div className="w-14 h-14 rounded-2xl overflow-hidden ring-2 ring-cyan-400/40 ring-offset-2 group-hover:ring-cyan-400 transition-all duration-300">
-                        <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <Image src={testimonial.avatar} alt={testimonial.name} width={56} height={56} sizes="56px" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-linear-to-br from-green-400 to-green-500 rounded-full border-2 border-white shadow-sm shadow-cyan-400/50"></span>
                 </div>

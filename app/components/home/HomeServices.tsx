@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function HomeServices() {
     const BikeIcon = () => (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 24 24"><path fill="currentColor" d="M4 13.256V12H2v-2h6.365L11.2 8h3.492L13.6 5H11V3h4l1.092 3H20v3h-2.816l1.456 4.002a4.5 4.5 0 1 1-1.985.392L15.419 10h-.947l-1.582 5.87l-.002-.001l.002.005l-2.925 1.065q.035.276.035.561a4.5 4.5 0 1 1-6-4.244m2-.229a4.5 4.5 0 0 1 3.281 2.033l1.957-.713L12.403 10h-.547L9 12H6zM5.5 20a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5m13 0a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5" /></svg>
@@ -110,8 +112,8 @@ export default function HomeServices() {
                                     <div className="relative mb-6">
                                         <div className="card-img w-full h-52 bg-linear-to-br from-cyan-50/80 via-cyan-100/40 to-transparent border border-cyan-400/40 rounded-2xl flex justify-center items-center p-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
                                             <div className="absolute inset-0 bg-linear-to-tr from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                            <img src={service.image} className="mix-blend-multiply w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500"
-                                                alt={service.title} />
+                                            <Image src={service.image} alt={service.title} width={300} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                                            className="mix-blend-multiply w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500" />
                                         </div>
                                         <div className="absolute -top-3 -right-3 w-14 h-14 text-white bg-linear-to-br from-cyan-400 to-cyan-600 rounded-[14px] flex items-center justify-center text-2xl shadow-sm shadow-cyan-500/40 group-hover:rotate-10 group-hover:scale-110 transition-all duration-700">
                                             {service.icon}
