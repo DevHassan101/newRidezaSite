@@ -115,10 +115,10 @@ export default function TestimonialsSlider() {
         <section className="relative overflow-hidden py-15 md:py-20 px-7 lg:px-26">
             <div className="w-full relative z-10">
                 <div className="testimonials-header text-center relative">
-                    <div className="inline-flex items-center gap-3 text-xs md:text-sm text-white uppercase tracking-widest">
-                        <span className="w-2 h-2 bg-cyan-600 rounded-full shadow-[0_0_10px_rgba(8,145,178,0.8)] animate-pulse" />
-                        <span className="font-semibold text-cyan-600">Happy Clients</span>
-                        <div className="w-8 h-px bg-linear-to-r from-cyan-600 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="inline-flex items-center gap-3 text-xs md:text-sm uppercase tracking-widest">
+                        <span className="w-2 h-2 bg-cyan-700 rounded-full shadow-[0_0_10px_rgba(14,116,144,0.8)] animate-pulse" />
+                        <span className="font-semibold text-cyan-700">Happy Clients</span>
+                        <div className="w-8 h-px bg-linear-to-r from-cyan-700 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="mt-5 md:mt-6 px-3 md:px-0 text-[30px] md:text-3xl lg:text-[40px] font-bold tracking-tight leading-[1.1] relative">
                         <span className="text-black/95 inline-block hover:text-black transition-colors duration-300 mr-2">
