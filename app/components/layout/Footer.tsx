@@ -32,20 +32,20 @@ export default function Footer() {
       <div className="relative z-10 px-8 lg:px-28 pt-10 pb-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start items-center gap-3">
-            <Image src="/images/ridezalogo.webp" width={140} height={50} sizes="(max-width: 1024px) 100px, 120px" alt="rideza-logo" priority />
+            <Image src="/images/ridezalogo.webp" width={140} height={50} sizes="(max-width: 1024px) 100px, 120px" className="w-28 md:w-full lg:w-full" alt="rideza-logo" priority />
           </div>
-          <p className="text-white text-[15px] leading-relaxed text-center">
+          <p className="text-white text-sm lg:text-[15px] leading-relaxed text-center">
             Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.
           </p>
           <div className="flex justify-center lg:justify-end">
-            <div className="relative group bg-linear-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 border-2 border-white hover:to-cyan-700 px-6 py-4 rounded-2xl flex items-center gap-4 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 cursor-pointer overflow-hidden">
+            <div className="relative group bg-linear-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 border-2 border-white hover:to-cyan-700 px-5 lg:px-6 py-3 md:py-4 lg:py-4 rounded-xl lg:rounded-2xl flex items-center gap-4 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 cursor-pointer overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
               <div className="text-white">
                 <PhoneIcon />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-cyan-100">Call for Taxi</p>
-                <p className="text-xl font-black tracking-tight text-white">5267-214-392</p>
+                <p className="text-lg lg:text-xl font-black tracking-tight text-white">5267-214-392</p>
               </div>
             </div>
           </div>

@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const FiMenu = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.1" d="M4.5 6.5h15M4.5 12h15m-15 5.5h15" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.1" d="M4.5 6.5h15M4.5 12h15m-15 5.5h15" /></svg>
 );
 
 const IoMdClose = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-7.5 h-7.5" viewBox="0 0 24 24"><g fill="currentColor" fillRule="evenodd" clipRule="evenodd" strokeWidth="0.9" stroke="currentColor"><path d="M5.47 5.47a.75.75 0 0 1 1.06 0l12 12a.75.75 0 1 1-1.06 1.06l-12-12a.75.75 0 0 1 0-1.06" /><path d="M18.53 5.47a.75.75 0 0 1 0 1.06l-12 12a.75.75 0 0 1-1.06-1.06l12-12a.75.75 0 0 1 1.06 0" /></g></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-6.6 h-6.5" viewBox="0 0 24 24"><g fill="currentColor" fillRule="evenodd" clipRule="evenodd" strokeWidth="0.9" stroke="currentColor"><path d="M5.47 5.47a.75.75 0 0 1 1.06 0l12 12a.75.75 0 1 1-1.06 1.06l-12-12a.75.75 0 0 1 0-1.06" /><path d="M18.53 5.47a.75.75 0 0 1 0 1.06l-12 12a.75.75 0 0 1-1.06-1.06l12-12a.75.75 0 0 1 1.06 0" /></g></svg>
 );
 
 const bookRideIcon = () => (
@@ -54,7 +54,7 @@ export default function Navbar() {
       <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400 px-2" : isHome ? "bg-white/20 lg:bg-white/5 border-b-2 border-transparent backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm border-b-2 border-cyan-400"}`}>
         <nav className="flex justify-between items-center px-5 py-4 md:px-15">
           <div className="rideza-logo">
-            <img src="/images/ridezalogo.webp" width="140" height="50" className="w-20 lg:w-24.5" alt="rideza-logo" />
+            <img src="/images/ridezalogo.webp" width="140" height="50" className="w-12 md:20 lg:w-24" alt="rideza-logo" />
           </div>
           <ul className="hidden text-black text-[17px] font-medium lg:flex items-center gap-5 pb-1">
             {menu.map((item) => (

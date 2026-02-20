@@ -110,10 +110,10 @@ export default function HomeServices() {
                                 <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-cyan-400 to-cyan-500 opacity-10 rounded-tl-full"></div>
                                 <div className="card-box p-8 relative z-10">
                                     <div className="relative mb-6">
-                                        <div className="card-img w-full h-52 bg-linear-to-br from-cyan-50/80 via-cyan-100/40 to-transparent border border-cyan-400/40 rounded-2xl flex justify-center items-center p-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+                                        <div className="card-img w-full h-50 lg:h-52 bg-linear-to-br from-cyan-50/80 via-cyan-100/40 to-transparent border border-cyan-400/40 rounded-2xl flex justify-center items-center p-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
                                             <div className="absolute inset-0 bg-linear-to-tr from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                             <Image src={service.image} alt={service.title} width={300} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                                            className="mix-blend-multiply w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                                            className="mix-blend-multiply w-40 h-40 md:w-full md:h-full lg:w-full lg:h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500" />
                                         </div>
                                         <div className="absolute -top-3 -right-3 w-14 h-14 text-white bg-linear-to-br from-cyan-400 to-cyan-600 rounded-[14px] flex items-center justify-center text-2xl shadow-sm shadow-cyan-500/40 group-hover:rotate-10 group-hover:scale-110 transition-all duration-700">
                                             {service.icon}
