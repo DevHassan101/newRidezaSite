@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const articles = [
     {
         id: 1,
         date: "January 10, 2024",
         category: "Booking Tips",
+        slug: "booking-tips",
         title: "Advantages of Online Taxi Booking Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -18,6 +20,7 @@ const articles = [
         id: 2,
         date: "February 11, 2024",
         category: "Industry News",
+        slug: "industry-news",
         title: "Utilizing Online Taxi service Reservation Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -29,6 +32,7 @@ const articles = [
         id: 3,
         date: "November 16, 2024",
         category: "Travel Guide",
+        slug: "travel-guide",
         title: "Convenience of Online Taxi Reservation Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -40,6 +44,7 @@ const articles = [
         id: 4,
         date: "November 16, 2024",
         category: "Travel Guide",
+        slug: "travel-guide",
         title: "Convenience of Online Taxi Reservation Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -51,6 +56,7 @@ const articles = [
         id: 5,
         date: "November 16, 2024",
         category: "Travel Guide",
+        slug: "travel-guide",
         title: "Convenience of Online Taxi Reservation Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -62,6 +68,7 @@ const articles = [
         id: 6,
         date: "November 16, 2024",
         category: "Travel Guide",
+        slug: "travel-guide",
         title: "Convenience of Online Taxi Reservation Services",
         excerpt:
             "Lorem ipsum dolor sit amet, cons auctor a liquet. Aenean sollicitudi.bibendu.",
@@ -113,13 +120,13 @@ function BlogCard({ article }: { article: (typeof articles)[0] }) {
                             <div className="text-[13px] font-bold text-[#111]">{article.author.name}</div>
                         </div>
                     </div>
-                    <div className={`flex items-center gap-1.5 text-cyan-500 text-[12.5px] font-bold uppercase tracking-widest px-4 py-2.5 border-2 rounded-xl transition-all duration-300
-                    ${hovered ? "border-cyan-400 bg-cyan-50" : "border-gray-200 bg-transparent"}`}>
+                    <Link href={`/blogs/${article.slug}`} className={`flex items-center gap-1.5 text-cyan-500 text-[12.5px] font-bold uppercase tracking-widest px-4 py-2.5 border-2 rounded-xl 
+                        transition-all duration-300 ${hovered ? "border-cyan-400 bg-cyan-50" : "border-gray-200 bg-transparent"}`}>
                         Read More
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </article>

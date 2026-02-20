@@ -22,7 +22,7 @@ const menu = [
   { name: "About Us", path: "/about" },
   { name: "Fair Services", path: "/services" },
   { name: "Safety", path: "/safety" },
-  { name: "Blog", path: "/blog" },
+  { name: "Blog", path: "/blogs" },
   { name: "Contact Us", path: "/contact" },
 ];
 
