@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="relative z-10 px-8 lg:px-28 pt-10 pb-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start items-center gap-3">
-            <Image src="/images/ridezalogo.webp" width={140} height={50} sizes="(max-width: 1024px) 100px, 120px" className="w-28 md:w-full lg:w-full" alt="rideza-logo" priority />
+            <Image src="/images/ridezalogo.webp" width={140} height={50} sizes="(max-width: 1024px) 100px, 120px" className="w-25 md:w-auto lg:w-auto" alt="rideza-logo" priority />
           </div>
           <p className="text-white text-sm lg:text-[15px] leading-relaxed text-center">
             Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.
