@@ -7,63 +7,36 @@ export default function BlogDetailPage() {
 
     return (
         <section className="mt-25">
-            <div className="bg-white relative min-h-screen py-16 px-4 md:px-6 lg:px-20">
-                {/* Ambient blobs */}
-                <div className="absolute top-10 right-10 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-10 left-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-
+            <div className="bg-white relative min-h-screen py-16 px-7 lg:px-20">
                 <div className="relative z-10 max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10">
-                        {/* ── MAIN CONTENT ── */}
                         <article>
-                            {/* Featured Image Card - Blog Cards Style */}
                             <div className="relative rounded-[20px] overflow-hidden mb-10 group shadow-xl">
-                                {/* Category Badge - Top Left (like blog cards) */}
                                 <div className="absolute top-6 left-6 z-20">
                                     <span className="bg-linear-to-r from-cyan-400 to-cyan-500 text-white text-xs font-bold px-5 py-2.5 rounded-full uppercase tracking-wider shadow-lg">
                                         Industry News
                                     </span>
                                 </div>
-
-                                {/* Read Time Badge - Top Right (like blog cards) */}
                                 <div className="absolute top-6 right-6 z-20 flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                                     <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                                     </svg>
                                     <span className="text-xs font-bold text-gray-900">5 min read</span>
                                 </div>
-
-                                {/* Image */}
-                                <img
-                                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=80"
-                                    alt="Blog Featured"
-                                    className="w-full h-112.5 md:h-137.5 object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-
-                                {/* Date Badge - Bottom Left (like blog cards) */}
+                                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=80" alt="Blog Featured" className="w-full h-112.5 md:h-137.5 object-cover group-hover:scale-105 transition-transform duration-700" />
                                 <div className="absolute bottom-6 left-6 z-20 bg-linear-to-br from-cyan-400 to-cyan-600 text-white font-bold px-5 py-2 rounded-xl shadow-lg">
                                     <span className="text-sm">February 11, 2024</span>
                                 </div>
-
-                                {/* Overlay gradient */}
                                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent" />
                             </div>
-
-                            {/* Author Info - Same as Blog Cards */}
                             <div className="flex items-center justify-between gap-4 mb-10 pb-8 border-b-2 border-gray-100">
                                 <div className="flex items-center gap-4">
-                                    <img
-                                        src="https://i.pravatar.cc/150?img=33"
-                                        alt="Author"
-                                        className="w-14 h-14 rounded-full ring-4 ring-cyan-100"
-                                    />
+                                    <img src="https://i.pravatar.cc/150?img=33" alt="Author" className="w-14 h-14 rounded-full ring-4 ring-cyan-100" />
                                     <div>
                                         <p className="text-gray-900 font-bold text-base">Martin Hank</p>
                                         <p className="text-gray-500 text-sm">Published 2 days ago</p>
                                     </div>
                                 </div>
-
-                                {/* Comments Badge */}
                                 <div className="flex items-center gap-2 text-cyan-500 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" />
@@ -71,15 +44,11 @@ export default function BlogDetailPage() {
                                     <span>02 Comments</span>
                                 </div>
                             </div>
-
-                            {/* Title */}
                             <h1 className="text-4xl md:text-5xl font-bold max-w-2xl text-gray-900 mb-8 leading-tight">
                                 Delivering the best
                                 <span className="bg-linear-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent"> web design </span>
                                 agency
                             </h1>
-
-                            {/* Content */}
                             <div className="prose prose-lg max-w-none pr-12">
                                 <p className="text-gray-600 text-[16px] leading-relaxed mb-6">
                                     Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla, sollicitudin at euismod nec, feugiat at nisi. Quisque vitae odio nec lacus interdum tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae et nunc. Sed vitae leo vitae nisl pellentesque semper.
@@ -91,8 +60,6 @@ export default function BlogDetailPage() {
                                     Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla, sollicitudin at euismod nec, feugiat at nisi. Quisque vitae odio nec lacus interdum tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae et nunc. Sed vitae leo vitae nisl pellentesque semper.
                                 </p>
                             </div>
-
-                            {/* Tags & Social - Blog Cards Style */}
                             <div className="flex flex-wrap items-center justify-between gap-6 mt-12 pt-8 border-t-2 border-gray-100">
                                 <div className="flex items-center gap-4">
                                     <span className="text-gray-900 font-bold text-sm uppercase tracking-wider">Tags</span>
@@ -105,7 +72,6 @@ export default function BlogDetailPage() {
                                         </button>
                                     </div>
                                 </div>
-
                                 <div className="flex items-center gap-3">
                                     <span className="text-gray-500 text-sm font-medium">Share:</span>
                                     <a href="#" className="w-11 h-11 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:border-cyan-400 hover:bg-cyan-400 hover:text-white transition-all duration-300 hover:scale-110">
@@ -119,8 +85,6 @@ export default function BlogDetailPage() {
                                     </a>
                                 </div>
                             </div>
-
-                            {/* READ MORE style navigation to other posts */}
                             <div className="mt-12 pt-10 border-t-2 border-gray-100">
                                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Blogs</h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -158,9 +122,7 @@ export default function BlogDetailPage() {
                                 </div>
                             </div>
                         </article>
-                        {/* ── SIDEBAR ── */}
                         <aside className="space-y-8">
-                            {/* Search Box */}
                             <div className="relative group">
                                 <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search here"
                                     className="w-full bg-white border-2 border-cyan-200 text-black/80 placeholder:text-black/60 font-medium text-sm px-6 py-4.75 rounded-xl outline-none focus:ring-1 focus:ring-cyan-300 transition-all duration-300 shadow-md shadow-black/5" />
@@ -168,7 +130,6 @@ export default function BlogDetailPage() {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><g fill="currentColor" fillRule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" /><path fill="#fff" d="M10.5 2a8.5 8.5 0 1 0 5.262 15.176l3.652 3.652a1 1 0 0 0 1.414-1.414l-3.652-3.652A8.5 8.5 0 0 0 10.5 2M4 10.5a6.5 6.5 0 1 1 13 0a6.5 6.5 0 0 1-13 0" strokeWidth="0.3" stroke="currentColor" /></g></svg>
                                 </button>
                             </div>
-                            {/* Latest Posts */}
                             <div className="bg-white border-2 border-cyan-200 rounded-[18px] p-6 md:p-8 transition-all duration-500 hover:border-cyan-300 hover:shadow-lg">
                                 <h3 className="text-gray-900 font-bold text-2xl mb-6 pb-4 border-b-2 border-gray-100">
                                     Latest Posts
@@ -181,11 +142,7 @@ export default function BlogDetailPage() {
                                     ].map((post, i) => (
                                         <div key={i} className="flex items-start gap-4 group cursor-pointer">
                                             <div className="relative shrink-0 rounded-2xl overflow-hidden">
-                                                <img
-                                                    src={post.img}
-                                                    alt=""
-                                                    className="w-24 h-24 object-cover group-hover:scale-110 transition-transform duration-500"
-                                                />
+                                                <img src={post.img} alt="" className="w-24 h-24 object-cover group-hover:scale-110 transition-transform duration-500" />
                                                 <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             </div>
                                             <div className="flex-1 pt-1">
@@ -203,8 +160,6 @@ export default function BlogDetailPage() {
                                     ))}
                                 </div>
                             </div>
-
-                            {/* Categories */}
                             <div className="bg-white border-2 border-cyan-200 rounded-[18px] p-6 md:p-8 transition-all duration-500 hover:border-cyan-300 hover:shadow-lg">
                                 <h3 className="text-gray-900 font-bold text-2xl mb-6 pb-4 border-b-2 border-gray-100">
                                     Categories
@@ -212,10 +167,7 @@ export default function BlogDetailPage() {
                                 <ul className="space-y-6">
                                     {["Business", "Digital Agency", "Introductions", "New Technologies", "Parallax Effects", "Web Development"].map((cat) => (
                                         <li key={cat}>
-                                            <a
-                                                href="#"
-                                                className="group flex items-center justify-between text-gray-600 text-[15px] font-medium hover:text-cyan-500 transition-all duration-300"
-                                            >
+                                            <a href="#" className="group flex items-center justify-between text-gray-600 text-[15px] font-medium hover:text-cyan-500 transition-all duration-300">
                                                 <span className="group-hover:translate-x-2 transition-transform duration-300">{cat}</span>
                                                 <svg className="w-4 h-4 text-gray-300 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -226,7 +178,6 @@ export default function BlogDetailPage() {
                                 </ul>
                             </div>
                         </aside>
-
                     </div>
                 </div>
             </div>
