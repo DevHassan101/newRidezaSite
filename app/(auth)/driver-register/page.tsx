@@ -130,7 +130,7 @@ export default function DriverRegisterForm() {
                                 {preview ? (
                                     <Image src={preview} alt="profile" width={300} height={300} className="w-full h-full object-cover rounded-full" />
                                 ) : (
-                                    <Image src="/images/user-profile.webp" width={300} height={300} className="w-28 h-28 rounded-full" alt="user-profile" />
+                                    <Image src="/images/user-profile.webp" width={300} height={300} className="w-28 h-28 object-contain!" alt="user-profile" />
                                 )}
                                 <div className="absolute z-20 top-2 right-1 w-8 h-8 bg-white border-2 border-gray-200 text-cyan-500 rounded-full flex items-center justify-center shadow-sm"
                                     onClick={(e) => { e.stopPropagation(); handleClick(); }}>
