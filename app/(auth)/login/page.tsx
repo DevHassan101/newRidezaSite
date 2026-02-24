@@ -59,7 +59,7 @@ export default function LoginForm() {
 
     return (
         <section className="bg-white min-h-screen flex items-center justify-center py-10">
-            <div className="relative w-full max-w-[95%] md:max-w-[60%] lg:max-w-[38%]">
+            <div className="relative w-full max-w-[95%] md:max-w-[60%] lg:max-w-[34%]">
                 <div className="relative w-full bg-white border border-cyan-300 rounded-3xl p-9 shadow-sm shadow-cyan-100">
                     {/* top-accent-strip */}
                     <div className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-linear-to-r from-cyan-300 via-cyan-500 to-cyan-300" />
