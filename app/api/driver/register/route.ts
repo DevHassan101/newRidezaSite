@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "../../../../lib/db";
-import { generateToken, hashPassword } from "../../../../lib/auth";
-import { Role } from "../../../../app/types";
+import prisma from "@/lib/db";
+import { generateToken, hashPassword } from "@/lib/auth";
+import { Role } from "@/app/types";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 

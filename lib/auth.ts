@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
-import prisma from "./db";
-import { Role, User } from "../app/types";
+import prisma from "@/lib/db";
+import { Role, User } from "@/app/types";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
