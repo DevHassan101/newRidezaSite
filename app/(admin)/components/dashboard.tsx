@@ -1,234 +1,285 @@
 "use client";
 
-const stats = [
-    {
-        label: "Total Rides",
-        value: "12,483",
-        change: "+8.2%",
-        up: true,
-        icon: (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-        ),
-        color: "from-cyan-400 to-cyan-500",
-        shadow: "shadow-cyan-200",
-    },
-    {
-        label: "Active Drivers",
-        value: "348",
-        change: "+3.1%",
-        up: true,
-        icon: (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-        ),
-        color: "from-teal-400 to-teal-500",
-        shadow: "shadow-teal-200",
-    },
-    {
-        label: "Total Revenue",
-        value: "Rs. 2.4M",
-        change: "+12.5%",
-        up: true,
-        icon: (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        ),
-        color: "from-emerald-400 to-emerald-500",
-        shadow: "shadow-emerald-200",
-    },
-    {
-        label: "Registered Users",
-        value: "9,210",
-        change: "-1.4%",
-        up: false,
-        icon: (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-        ),
-        color: "from-sky-400 to-sky-500",
-        shadow: "shadow-sky-200",
-    },
-];
+import { useState, useEffect } from "react";
 
-const recentRides = [
-    { id: "#RD-1042", user: "Ali Hassan", driver: "Tariq Mehmood", from: "Gulshan", to: "DHA", fare: "Rs. 320", status: "Completed", time: "2 min ago" },
-    { id: "#RD-1041", user: "Sara Khan", driver: "Usman Ali", from: "Clifton", to: "Saddar", fare: "Rs. 180", status: "Ongoing", time: "8 min ago" },
-    { id: "#RD-1040", user: "Bilal Ahmed", driver: "Kamran Shah", from: "PECHS", to: "Korangi", fare: "Rs. 450", status: "Completed", time: "15 min ago" },
-    { id: "#RD-1039", user: "Nida Farooq", driver: "Hassan Raza", from: "North Karachi", to: "Nazimabad", fare: "Rs. 220", status: "Cancelled", time: "22 min ago" },
-    { id: "#RD-1038", user: "Zain ul Abideen", driver: "Asif Iqbal", from: "Gulberg", to: "Johar", fare: "Rs. 390", status: "Completed", time: "30 min ago" },
-];
+type DriverStatus = "PENDING" | "APPROVED" | "REJECTED" | "SUSPENDED";
 
-const statusStyle: Record<string, string> = {
-    Completed: "bg-emerald-50 text-emerald-600 border border-emerald-200",
-    Ongoing: "bg-cyan-50 text-cyan-600 border border-cyan-200",
-    Cancelled: "bg-red-50 text-red-500 border border-red-200",
+interface Driver {
+    id: string;
+    city: string;
+    status: DriverStatus;
+    reviewNote?: string | null;
+    createdAt: string;
+    user: {
+        id: string;
+        name: string;
+        email: string;
+        phone: string;
+        isActive: boolean;
+    };
+}
+
+const statusStyle: Record<DriverStatus, string> = {
+    PENDING: "bg-amber-50 text-amber-600 border border-amber-200",
+    APPROVED: "bg-emerald-50 text-emerald-600 border border-emerald-200",
+    REJECTED: "bg-red-50 text-red-500 border border-red-200",
+    SUSPENDED: "bg-zinc-100 text-zinc-500 border border-zinc-200",
 };
 
-// Simple bar chart data
-const weeklyData = [40, 65, 50, 80, 72, 90, 60];
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const maxVal = Math.max(...weeklyData);
+const statusOptions: { value: DriverStatus; label: string }[] = [
+    { value: "APPROVED", label: "Approve" },
+    { value: "REJECTED", label: "Reject" },
+    { value: "SUSPENDED", label: "Suspend" },
+    { value: "PENDING", label: "Set Pending" },
+];
 
-export default function Dashboard() {
+export default function AdminDriversPage() {
+    const [drivers, setDrivers] = useState<Driver[]>([]);
+    const [summary, setSummary] = useState({ total: 0, pending: 0, approved: 0, rejected: 0, suspended: 0 });
+    const [loading, setLoading] = useState(true);
+    const [filterStatus, setFilterStatus] = useState<string>("");
+    const [actionLoading, setActionLoading] = useState<string | null>(null);
+
+    // modal state
+    const [modal, setModal] = useState<{ open: boolean; driver: Driver | null }>({ open: false, driver: null });
+    const [newStatus, setNewStatus] = useState<DriverStatus>("APPROVED");
+    const [reviewNote, setReviewNote] = useState("");
+
+    const fetchDrivers = async (status?: string) => {
+        setLoading(true);
+        try {
+            const url = status ? `/api/admin/drivers?status=${status}` : "/api/admin/drivers";
+            const res = await fetch(url);
+            const data = await res.json();
+            setDrivers(data.drivers || []);
+            setSummary(data.summary || {});
+        } catch {
+            console.error("Failed to fetch drivers");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchDrivers(filterStatus || undefined);
+    }, [filterStatus]);
+
+    const openModal = (driver: Driver) => {
+        setModal({ open: true, driver });
+        setNewStatus("APPROVED");
+        setReviewNote("");
+    };
+
+    const closeModal = () => {
+        setModal({ open: false, driver: null });
+        setReviewNote("");
+    };
+
+    const handleStatusChange = async () => {
+        if (!modal.driver) return;
+        setActionLoading(modal.driver.id);
+        try {
+            const res = await fetch(`/api/admin/driver/${modal.driver.id}/status`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status: newStatus, reviewNote: reviewNote || null }),
+            });
+            if (res.ok) {
+                closeModal();
+                fetchDrivers(filterStatus || undefined);
+            }
+        } catch {
+            console.error("Status update failed");
+        } finally {
+            setActionLoading(null);
+        }
+    };
+
     return (
         <div className="space-y-6">
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                {stats.map((stat) => (
-                    <div key={stat.label} className="bg-white border border-zinc-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:shadow-cyan-50 transition-all duration-300 group">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className={`w-10 h-10 rounded-xl bg-linear-to-br ${stat.color} flex items-center justify-center text-white shadow-md ${stat.shadow}`}>
-                                {stat.icon}
-                            </div>
-                            <span className={`text-[12px] font-semibold px-2 py-1 rounded-lg ${stat.up ? "bg-emerald-50 text-emerald-600" : "bg-red-50 text-red-500"}`}>
-                                {stat.change}
-                            </span>
-                        </div>
-                        <p className="text-[26px] font-bold text-zinc-800 leading-none">{stat.value}</p>
-                        <p className="text-[13px] text-zinc-400 mt-1.5">{stat.label}</p>
+            {/* Summary Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                {[
+                    { label: "Total", value: summary.total, color: "text-zinc-700" },
+                    { label: "Pending", value: summary.pending, color: "text-amber-600" },
+                    { label: "Approved", value: summary.approved, color: "text-emerald-600" },
+                    { label: "Rejected", value: summary.rejected, color: "text-red-500" },
+                    { label: "Suspended", value: summary.suspended, color: "text-zinc-500" },
+                ].map((s) => (
+                    <div key={s.label} className="bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm text-center">
+                        <p className={`text-[24px] font-bold ${s.color}`}>{s.value}</p>
+                        <p className="text-[12px] text-zinc-400 mt-0.5">{s.label}</p>
                     </div>
                 ))}
             </div>
 
-            {/* Chart + Quick Info Row */}
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-
-                {/* Weekly Rides Chart */}
-                <div className="xl:col-span-2 bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm">
-                    <div className="flex items-center justify-between mb-6">
-                        <div>
-                            <h3 className="text-[15px] font-bold text-zinc-800">Weekly Rides</h3>
-                            <p className="text-[12px] text-zinc-400 mt-0.5">This week's ride activity</p>
-                        </div>
-                        <div className="flex items-center gap-1.5 bg-cyan-50 border border-cyan-200 rounded-xl px-3 py-1.5">
-                            <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                            <span className="text-[12px] text-cyan-600 font-medium">This Week</span>
-                        </div>
-                    </div>
-
-                    {/* Bar Chart */}
-                    <div className="flex items-end justify-between gap-2 h-36">
-                        {weeklyData.map((val, i) => (
-                            <div key={i} className="flex-1 flex flex-col items-center gap-1.5">
-                                <div className="w-full relative group/bar" style={{ height: "120px", display: "flex", alignItems: "flex-end" }}>
-                                    <div
-                                        className="w-full rounded-t-lg bg-linear-to-t from-cyan-500 to-cyan-300 hover:from-cyan-400 hover:to-cyan-200 transition-all duration-300 cursor-pointer relative"
-                                        style={{ height: `${(val / maxVal) * 100}%` }}
-                                    >
-                                        <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-zinc-600 opacity-0 group-hover/bar:opacity-100 transition-opacity">
-                                            {val}
-                                        </span>
-                                    </div>
-                                </div>
-                                <span className="text-[11px] text-zinc-400 font-medium">{days[i]}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Quick Stats */}
-                <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-                    <h3 className="text-[15px] font-bold text-zinc-800 mb-4">Quick Stats</h3>
-                    <div className="space-y-4">
-                        {[
-                            { label: "Avg. Ride Time", value: "18 min", pct: 65 },
-                            { label: "Driver Rating", value: "4.7 / 5", pct: 94 },
-                            { label: "Completion Rate", value: "91%", pct: 91 },
-                        ].map((s) => (
-                            <div key={s.label}>
-                                <div className="flex justify-between mb-1.5">
-                                    <span className="text-[12.5px] text-zinc-500">{s.label}</span>
-                                    <span className="text-[12.5px] font-semibold text-zinc-700">{s.value}</span>
-                                </div>
-                                <div className="h-2 w-full bg-zinc-100 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-linear-to-r from-cyan-400 to-cyan-500 rounded-full"
-                                        style={{ width: `${s.pct}%` }}
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Status badges */}
-                    <div className="mt-5 pt-4 border-t border-zinc-100 grid grid-cols-3 gap-2 text-center">
-                        {[
-                            { label: "Online Drivers", val: "124", color: "text-emerald-600" },
-                            { label: "On Ride", val: "87", color: "text-cyan-600" },
-                            { label: "Offline", val: "137", color: "text-zinc-500" },
-                        ].map((b) => (
-                            <div key={b.label}>
-                                <p className={`text-[18px] font-bold ${b.color}`}>{b.val}</p>
-                                <p className="text-[10px] text-zinc-400 mt-0.5 leading-tight">{b.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Recent Rides Table */}
+            {/* Filter + Table */}
             <div className="bg-white border border-zinc-100 rounded-2xl shadow-sm overflow-hidden">
-                <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-zinc-100 gap-3">
                     <div>
-                        <h3 className="text-[15px] font-bold text-zinc-800">Recent Rides</h3>
-                        <p className="text-[12px] text-zinc-400 mt-0.5">Latest ride activity across the platform</p>
+                        <h3 className="text-[15px] font-bold text-zinc-800">All Drivers</h3>
+                        <p className="text-[12px] text-zinc-400 mt-0.5">Manage driver approvals and status</p>
                     </div>
-                    <button className="text-[13px] font-semibold text-cyan-500 hover:text-cyan-600 transition-colors">
-                        View All →
-                    </button>
+                    {/* Filter */}
+                    <select
+                        value={filterStatus}
+                        onChange={(e) => setFilterStatus(e.target.value)}
+                        className="text-[13px] border border-zinc-200 rounded-xl px-3 py-2 text-zinc-600 focus:outline-none focus:border-cyan-400 bg-zinc-50"
+                    >
+                        <option value="">All Status</option>
+                        <option value="PENDING">Pending</option>
+                        <option value="APPROVED">Approved</option>
+                        <option value="REJECTED">Rejected</option>
+                        <option value="SUSPENDED">Suspended</option>
+                    </select>
                 </div>
-                <div className="overflow-x-auto">
-                    <table className="w-full">
-                        <thead>
-                            <tr className="bg-zinc-50/80">
-                                {["Ride ID", "User", "Driver", "Route", "Fare", "Status", "Time"].map((h) => (
-                                    <th key={h} className="text-left px-5 py-3 text-[11.5px] font-semibold text-zinc-400 uppercase tracking-wider">
-                                        {h}
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-zinc-50">
-                            {recentRides.map((ride) => (
-                                <tr key={ride.id} className="hover:bg-cyan-50/40 transition-colors duration-150 group">
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[13px] font-semibold text-cyan-500">{ride.id}</span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[13px] text-zinc-700">{ride.user}</span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[13px] text-zinc-600">{ride.driver}</span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[12.5px] text-zinc-500">
-                                            {ride.from} <span className="text-cyan-400 font-bold mx-1">→</span> {ride.to}
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[13px] font-semibold text-zinc-700">{ride.fare}</span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className={`inline-flex text-[11.5px] font-semibold px-2.5 py-1 rounded-lg ${statusStyle[ride.status]}`}>
-                                            {ride.status}
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-3.5">
-                                        <span className="text-[12px] text-zinc-400">{ride.time}</span>
-                                    </td>
+
+                {/* Table */}
+                {loading ? (
+                    <div className="flex items-center justify-center py-16">
+                        <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+                    </div>
+                ) : drivers.length === 0 ? (
+                    <div className="text-center py-16">
+                        <p className="text-zinc-400 text-[14px]">No drivers found.</p>
+                    </div>
+                ) : (
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead>
+                                <tr className="bg-zinc-50/80">
+                                    {["Name", "Email", "Phone", "City", "Status", "Joined", "Action"].map((h) => (
+                                        <th key={h} className="text-left px-5 py-3 text-[11.5px] font-semibold text-zinc-400 uppercase tracking-wider">
+                                            {h}
+                                        </th>
+                                    ))}
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody className="divide-y divide-zinc-50">
+                                {drivers.map((driver) => (
+                                    <tr key={driver.id} className="hover:bg-cyan-50/40 transition-colors duration-150">
+                                        <td className="px-5 py-3.5">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-8 h-8 rounded-full bg-linear-to-br from-cyan-400 to-cyan-500 flex items-center justify-center text-white text-[12px] font-bold shrink-0">
+                                                    {driver.user.name.charAt(0).toUpperCase()}
+                                                </div>
+                                                <span className="text-[13px] font-medium text-zinc-700">{driver.user.name}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <span className="text-[13px] text-zinc-500">{driver.user.email}</span>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <span className="text-[13px] text-zinc-500">{driver.user.phone}</span>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <span className="text-[13px] text-zinc-600">{driver.city}</span>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <span className={`inline-flex text-[11.5px] font-semibold px-2.5 py-1 rounded-lg ${statusStyle[driver.status]}`}>
+                                                {driver.status}
+                                            </span>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <span className="text-[12px] text-zinc-400">
+                                                {new Date(driver.createdAt).toLocaleDateString("en-PK", { day: "numeric", month: "short", year: "numeric" })}
+                                            </span>
+                                        </td>
+                                        <td className="px-5 py-3.5">
+                                            <button
+                                                onClick={() => openModal(driver)}
+                                                className="text-[12px] font-semibold text-cyan-500 hover:text-cyan-600 border border-cyan-200 hover:border-cyan-400 bg-cyan-50 hover:bg-cyan-100 px-3 py-1.5 rounded-lg transition-all duration-150"
+                                            >
+                                                Manage
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
 
+            {/* Modal */}
+            {modal.open && modal.driver && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
+                    <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 border border-zinc-100">
+                        <div className="flex items-start justify-between mb-5">
+                            <div>
+                                <h4 className="text-[16px] font-bold text-zinc-800">Update Driver Status</h4>
+                                <p className="text-[13px] text-zinc-400 mt-0.5">{modal.driver.user.name} — {modal.driver.user.email}</p>
+                            </div>
+                            <button onClick={closeModal} className="text-zinc-400 hover:text-zinc-600 transition-colors">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Current status */}
+                        <div className="mb-4 flex items-center gap-2">
+                            <span className="text-[13px] text-zinc-500">Current:</span>
+                            <span className={`inline-flex text-[11.5px] font-semibold px-2.5 py-1 rounded-lg ${statusStyle[modal.driver.status]}`}>
+                                {modal.driver.status}
+                            </span>
+                        </div>
+
+                        {/* New status select */}
+                        <div className="mb-4">
+                            <label className="block text-[13px] font-semibold text-zinc-500 mb-2">New Status</label>
+                            <div className="grid grid-cols-2 gap-2">
+                                {statusOptions.map((opt) => (
+                                    <button
+                                        key={opt.value}
+                                        onClick={() => setNewStatus(opt.value)}
+                                        className={`py-2 rounded-xl text-[13px] font-semibold border transition-all duration-150 ${
+                                            newStatus === opt.value
+                                                ? "bg-cyan-500 text-white border-cyan-500"
+                                                : "bg-zinc-50 text-zinc-600 border-zinc-200 hover:border-cyan-300"
+                                        }`}
+                                    >
+                                        {opt.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Review note */}
+                        <div className="mb-5">
+                            <label className="block text-[13px] font-semibold text-zinc-500 mb-2">
+                                Note <span className="text-zinc-400 font-normal">(optional)</span>
+                            </label>
+                            <textarea
+                                value={reviewNote}
+                                onChange={(e) => setReviewNote(e.target.value)}
+                                placeholder="Reason for status change..."
+                                rows={3}
+                                className="w-full border border-zinc-200 rounded-xl px-4 py-2.5 text-[13.5px] text-zinc-700 placeholder-zinc-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 resize-none bg-zinc-50"
+                            />
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="flex gap-3">
+                            <button
+                                onClick={closeModal}
+                                className="flex-1 py-2.5 rounded-xl border border-zinc-200 text-[13.5px] font-semibold text-zinc-600 hover:bg-zinc-50 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleStatusChange}
+                                disabled={actionLoading === modal.driver.id}
+                                className="flex-1 py-2.5 rounded-xl bg-linear-to-r from-cyan-400 to-cyan-500 text-white text-[13.5px] font-semibold hover:from-cyan-500 hover:to-cyan-400 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                            >
+                                {actionLoading === modal.driver.id ? "Updating..." : "Update Status"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

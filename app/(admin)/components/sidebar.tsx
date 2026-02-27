@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const navItems = [
     {
@@ -73,6 +73,14 @@ const navItems = [
 export default function Sidebar() {
     const pathname = usePathname();
 
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        await fetch("/api/auth/logout", { method: "POST" });
+        router.push("/login");
+    };
+
+
     return (
         <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-cyan-100 shadow-lg shadow-cyan-50 flex flex-col z-40">
             {/* Logo */}
@@ -99,11 +107,10 @@ export default function Sidebar() {
                         <Link
                             key={item.href}
                             href={item.href}
-                            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium transition-all duration-200 group ${
-                                isActive
+                            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium transition-all duration-200 group ${isActive
                                     ? "bg-linear-to-r from-cyan-400 to-cyan-500 text-white shadow-md shadow-cyan-200"
                                     : "text-zinc-600 hover:bg-cyan-50 hover:text-cyan-600"
-                            }`}
+                                }`}
                         >
                             <span className={`transition-colors ${isActive ? "text-white" : "text-zinc-400 group-hover:text-cyan-500"}`}>
                                 {item.icon}
@@ -127,7 +134,7 @@ export default function Sidebar() {
                         <p className="text-[13px] font-semibold text-zinc-700 truncate">Admin</p>
                         <p className="text-[11px] text-zinc-400 truncate">admin@rideza.com</p>
                     </div>
-                    <button className="ml-auto text-zinc-400 hover:text-red-400 transition-colors shrink-0">
+                    <button onClick={handleLogout} className="ml-auto text-zinc-400 hover:text-red-400 transition-colors shrink-0">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>

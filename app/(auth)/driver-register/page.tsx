@@ -3,8 +3,10 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function DriverRegisterForm() {
+    const router = useRouter();
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
@@ -13,8 +15,11 @@ export default function DriverRegisterForm() {
     const [aadhaar, setAadhaar] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [preview, setPreview] = useState<string | null>(null);
+    const [profileFile, setProfileFile] = useState<File | null>(null);
     const [touched, setTouched] = useState<Record<string, boolean>>({});
     const [submitted, setSubmitted] = useState(false);
+    const [apiError, setApiError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -49,7 +54,7 @@ export default function DriverRegisterForm() {
 
     if (!phone.trim()) {
         errors.phone = "Phone number is required.";
-    } else if (!/^\+?[0-9\s\-()]{7,15}$/.test(phone.trim())) {
+    } else if (!/^\+?[0-9\s\-()]{11}$/.test(phone.trim())) {
         errors.phone = "Enter a valid phone number.";
     }
 
@@ -75,16 +80,51 @@ export default function DriverRegisterForm() {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        setProfileFile(file);
         setPreview(URL.createObjectURL(file));
     };
 
     const handleClick = () => inputRef.current?.click();
 
-    const handleRegister = (e: React.FormEvent) => {
+    const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitted(true);
+        setApiError(null);
         if (Object.keys(errors).length > 0) return;
-        console.log("Registering:", { name, phone, email, city, aadhaar, password });
+
+        setLoading(true);
+        try {
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("email", email);
+            formData.append("phone", phone);
+            formData.append("password", password);
+            formData.append("aadhaar", aadhaar);
+            formData.append("city", city);
+            if (profileFile) {
+                formData.append("profilePic", profileFile);
+            }
+
+            const res = await fetch("/api/driver/register", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                setApiError(data.error || "Registration failed");
+                return;
+            }
+
+            // Driver registered — pending notice ke saath login par bhejo
+            router.push("/login?status=pending");
+
+        } catch {
+            setApiError("Something went wrong. Try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     // reusable-error-message
@@ -123,7 +163,7 @@ export default function DriverRegisterForm() {
                         <p className="text-zinc-400 text-sm tracking-wider pl-0.5">Fill the details below to get started.</p>
                     </div>
                     <form onSubmit={handleRegister} className="space-y-5" noValidate>
-                        {/* profile-pic — no validation */}
+                        {/* profile-pic */}
                         <div className="flex justify-center items-center">
                             <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
                             <div onClick={handleClick} className="group relative w-40 h-40 z-10 flex justify-center items-center border-3 border-gray-200 bg-gray-50 rounded-full cursor-pointer">
@@ -170,7 +210,6 @@ export default function DriverRegisterForm() {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 12c0-3.771 0-5.657 1.172-6.828S6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172S22 8.229 22 12s0 5.657-1.172 6.828S17.771 20 14 20h-4c-3.771 0-5.657 0-6.828-1.172S2 15.771 2 12Z" /><path strokeLinecap="round" d="M10 16H6m8 0h-1.5M2 10h20" /></g></svg>
                                 </span>
                                 <input type="text" inputMode="numeric" value={aadhaar} onChange={(e) => { handleAadhaarChange(e); handleBlur("aadhaar"); }} onBlur={() => handleBlur("aadhaar")} placeholder="XXXX XXXX XXXX" maxLength={14} className={inputClass("aadhaar")} />
-                                {/* digit counter */}
                                 <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-zinc-400 select-none">
                                     {aadhaarDigits.length}/12
                                 </span>
@@ -222,15 +261,32 @@ export default function DriverRegisterForm() {
                             </div>
                             <ErrorMsg field="password" />
                         </div>
+
+                        {/* api-error */}
+                        {apiError && (
+                            <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5 flex items-center gap-2">
+                                <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                                </svg>
+                                {apiError}
+                            </p>
+                        )}
+
                         {/* submit-button */}
                         <div className="pt-1">
-                            <button type="submit" className="relative w-full cursor-pointer overflow-hidden bg-linear-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-semibold py-3.75 rounded-[10px] text-[15px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-cyan-300/50 active:scale-[0.98] group">
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="relative w-full cursor-pointer overflow-hidden bg-linear-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-semibold py-3.75 rounded-[10px] text-[15px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-cyan-300/50 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed group"
+                            >
                                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-12" />
                                 <span className="relative flex items-center justify-center gap-2">
-                                    Sign Up
-                                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
+                                    {loading ? "Registering..." : "Sign Up"}
+                                    {!loading && (
+                                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    )}
                                 </span>
                             </button>
                         </div>
