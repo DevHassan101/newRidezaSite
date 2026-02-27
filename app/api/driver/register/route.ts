@@ -4,14 +4,13 @@ import { generateToken, hashPassword } from "@/lib/auth";
 import { Role } from "@/app/types";
 import { createClient } from "@supabase/supabase-js";
 
-// Supabase client
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: NextRequest) {
     try {
+        const supabase = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.SUPABASE_SERVICE_ROLE_KEY!
+        );
         const formData = await request.formData();
         const name = formData.get("name") as string;
         const email = formData.get("email") as string;
