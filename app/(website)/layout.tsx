@@ -1,35 +1,18 @@
-import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import "../globals.css";
 
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-});
-
-export const metadata: Metadata = {
-  title: "Rideza - Transportation Management System",
-  description: "Developed by Rideza Transportation",
-};
-
-export default function RootLayout({
+export default function WebsiteLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={outfit.className} suppressHydrationWarning>
-        <Navbar />
-        <main>
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <Navbar />
+      <main>
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }

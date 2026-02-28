@@ -70,7 +70,12 @@ const navItems = [
     },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+    open: boolean;
+    onClose: () => void;
+}
+
+export default function Sidebar({ open, onClose }: SidebarProps) {
     const pathname = usePathname();
 
     const router = useRouter();
@@ -80,10 +85,10 @@ export default function Sidebar() {
         router.push("/login");
     };
 
-
     return (
-        <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-cyan-100 shadow-lg shadow-cyan-50 flex flex-col z-40">
-            {/* Logo */}
+        <aside className={`fixed left-0 top-0 h-full w-64 bg-white border-r border-cyan-100 shadow-lg shadow-cyan-50 flex flex-col z-40 transition-transform duration-300 
+            ${open ? "translate-x-0" : "-translate-x-full"}`}>
+            {/* sidebar-logo */}
             <div className="px-6 py-5 border-b border-cyan-100">
                 <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-xl bg-linear-to-br from-cyan-400 to-cyan-600 flex items-center justify-center shadow-md shadow-cyan-200">
@@ -97,21 +102,14 @@ export default function Sidebar() {
                     </div>
                 </div>
             </div>
-
-            {/* Nav */}
+            {/* sidebar-nav-list */}
             <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
                 <p className="text-[10px] font-semibold text-zinc-400 tracking-widest uppercase px-3 mb-3">Main Menu</p>
                 {navItems.map((item) => {
                     const isActive = pathname === item.href;
                     return (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium transition-all duration-200 group ${isActive
-                                    ? "bg-linear-to-r from-cyan-400 to-cyan-500 text-white shadow-md shadow-cyan-200"
-                                    : "text-zinc-600 hover:bg-cyan-50 hover:text-cyan-600"
-                                }`}
-                        >
+                        <Link key={item.href} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium transition-all duration-200 group 
+                            ${isActive ? "bg-linear-to-r from-cyan-400 to-cyan-500 text-white shadow-md shadow-cyan-200" : "text-zinc-600 hover:bg-cyan-50 hover:text-cyan-600"}`}>
                             <span className={`transition-colors ${isActive ? "text-white" : "text-zinc-400 group-hover:text-cyan-500"}`}>
                                 {item.icon}
                             </span>
@@ -123,8 +121,7 @@ export default function Sidebar() {
                     );
                 })}
             </nav>
-
-            {/* Bottom user card */}
+            {/* sidebar-bottom-card */}
             <div className="px-3 pb-4">
                 <div className="bg-linear-to-br from-cyan-50 to-cyan-100 border border-cyan-200 rounded-2xl p-3 flex items-center gap-3">
                     <div className="w-9 h-9 rounded-xl bg-linear-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white font-bold text-sm shrink-0">

@@ -22,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className} suppressHydrationWarning>
-        <main>
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

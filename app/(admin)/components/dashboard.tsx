@@ -99,7 +99,7 @@ export default function AdminDriversPage() {
         <div className="space-y-6">
 
             {/* Summary Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
                 {[
                     { label: "Total", value: summary.total, color: "text-zinc-700" },
                     { label: "Pending", value: summary.pending, color: "text-amber-600" },
