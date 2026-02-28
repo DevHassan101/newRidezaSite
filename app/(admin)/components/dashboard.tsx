@@ -97,7 +97,6 @@ export default function AdminDriversPage() {
 
     return (
         <div className="space-y-6">
-
             {/* Summary Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
                 {[
@@ -113,7 +112,6 @@ export default function AdminDriversPage() {
                     </div>
                 ))}
             </div>
-
             {/* Filter + Table */}
             <div className="bg-white border border-zinc-100 rounded-2xl shadow-sm overflow-hidden">
                 {/* Header */}
@@ -202,7 +200,6 @@ export default function AdminDriversPage() {
                     </div>
                 )}
             </div>
-
             {/* Modal */}
             {modal.open && modal.driver && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">

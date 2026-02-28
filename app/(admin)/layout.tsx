@@ -9,7 +9,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     // mobile-par-auto-close
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 856) {
                 setSidebarOpen(false);
             } else {
                 setSidebarOpen(true);
@@ -26,7 +26,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {/* mobile-overlay */}
             {sidebarOpen && ( <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} /> )}
             <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
-            <main className={`transition-all duration-300 pt-17 min-h-screen ${ sidebarOpen ? "md:ml-64" : "ml-0" }`}>
+            <main className={`transition-all duration-300 pt-17 min-h-screen ${ sidebarOpen ? "md:ml-72" : "ml-0" }`}>
                 <div className="p-6">{children}</div>
             </main>
         </div>

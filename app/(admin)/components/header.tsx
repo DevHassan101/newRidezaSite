@@ -12,9 +12,9 @@ export default function Header({ sidebarOpen, onToggle }: HeaderProps) {
 
     return (
         <header className={`fixed top-0 right-0 h-17 bg-white/90 backdrop-blur-sm border-b border-cyan-100 flex items-center px-6 gap-4 z-30 shadow-sm shadow-cyan-50 transition-all duration-300 
-            ${sidebarOpen ? "md:left-64 left-0" : "left-0"}`}>
+            ${sidebarOpen ? "md:left-72 left-0" : "left-0"}`}>
             {/* header-hamburger */}
-            <button onClick={onToggle} className="w-10 h-10 rounded-xl border-2 border-zinc-200 bg-zinc-50 hover:border-cyan-300 hover:bg-cyan-50 flex items-center justify-center text-zinc-500 hover:text-cyan-500 transition-all duration-200 shrink-0">
+            <button onClick={onToggle} className="w-10 h-10 cursor-pointer rounded-xl border-2 border-zinc-200 bg-zinc-50 hover:border-cyan-300 hover:bg-cyan-50 flex items-center justify-center text-zinc-500 hover:text-cyan-500 transition-all duration-200 shrink-0">
                 {sidebarOpen ? (
                     <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
