@@ -21,12 +21,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }, []);
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-cyan-50/60 via-white to-zinc-50">
+        <div className="min-h-screen bg-zinc-100/60">
             <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             {/* mobile-overlay */}
             {sidebarOpen && ( <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} /> )}
             <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
-            <main className={`transition-all duration-300 pt-17 min-h-screen ${ sidebarOpen ? "md:ml-72" : "ml-0" }`}>
+            <main className={`transition-all duration-300 pt-20 min-h-screen ${ sidebarOpen ? "md:ml-72" : "ml-0" }`}>
                 <div className="p-6">{children}</div>
             </main>
         </div>

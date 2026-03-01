@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const navItems = [
     {
@@ -63,31 +63,25 @@ interface SidebarProps {
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
     const pathname = usePathname();
-    const router = useRouter();
-
-    const handleLogout = async () => {
-        await fetch("/api/auth/logout", { method: "POST" });
-        router.push("/login");
-    };
 
     return (
-        <aside className={`fixed left-0 top-0 h-full w-72 bg-white border-r border-zinc-100 shadow-xl flex flex-col z-40 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}>
+        <aside className={`fixed left-0 top-0 h-full w-72 bg-white border-r border-zinc-200 shadow-xl flex flex-col z-40 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}>
             {/* Logo */}
-            <div className="px-5 py-5 border-b border-zinc-100">
+            <div className="px-6 py-5 border-b border-zinc-200">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-linear-to-br from-cyan-400 to-cyan-600 flex items-center justify-center shadow-lg shadow-cyan-200">
+                    <div className="w-10 h-10 rounded-[10px] bg-linear-to-br from-cyan-400 to-cyan-600 flex items-center justify-center shadow-lg shadow-cyan-200">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                     </div>
                     <div>
-                        <h2 className="text-[18px] font-black text-zinc-800 leading-none tracking-tight">RideZa</h2>
-                        <p className="text-[10px] text-zinc-400 tracking-widest uppercase mt-0.5 font-medium">Admin Panel</p>
+                        <h2 className="text-xl font-bold text-zinc-800 leading-none tracking-tight">Rideza</h2>
+                        <p className="text-xs text-zinc-400 tracking-widest uppercase mt-0.5 font-medium">Admin Panel</p>
                     </div>
                 </div>
             </div>
             {/* Nav */}
-            <nav className="flex-1 px-4 py-5 space-y-3 overflow-y-auto custom-scrollbar">
+            <nav className="flex-1 px-5 py-5 space-y-3 overflow-y-auto custom-scrollbar">
                 {navItems.map((item) => {
                     const isActive = pathname === item.href;
                     return (
