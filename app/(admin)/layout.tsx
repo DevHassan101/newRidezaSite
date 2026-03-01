@@ -6,7 +6,7 @@ import Header from "./components/header";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    // mobile-par-auto-close
+
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 856) {
@@ -21,14 +21,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }, []);
 
     return (
-        <div className="min-h-screen bg-zinc-100/60">
+        <div className="h-screen overflow-hidden flex bg-zinc-100/10">
             <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-            {/* mobile-overlay */}
+            {/* mobile overlay */}
             {sidebarOpen && ( <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} /> )}
-            <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
-            <main className={`transition-all duration-300 pt-20 min-h-screen ${ sidebarOpen ? "md:ml-72" : "ml-0" }`}>
-                <div className="p-6">{children}</div>
-            </main>
+            {/* right-side-wrapper */}
+            <div className={`flex flex-col flex-1 transition-all duration-300 ${sidebarOpen ? "md:ml-72" : "ml-0"}`}>
+                <Header sidebarOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
+                <main className="flex-1 overflow-y-auto pt-20">
+                    <div className="p-6">{children}</div>
+                </main>
+            </div>
         </div>
     );
 }
